@@ -11,12 +11,12 @@ exports[`Cart should render correctly for a visual user 1`] = `
     >
       <header
         class="header_container"
-        data-test="header-container"
+        data-testid="header-container"
         id="header_container"
       >
         <div
           class="primary_header"
-          data-test="primary-header"
+          data-testid="primary-header"
         >
           <div
             id="menu_button_container"
@@ -37,7 +37,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                   <img
                     alt="Open Menu"
                     class="bm-icon visual_failure"
-                    data-test="open-menu"
+                    data-testid="open-menu"
                     src="test-file-stub"
                     srcset="test-file-stub"
                     style="width: 100%; height: 100%;"
@@ -60,7 +60,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                   >
                     <a
                       class="bm-item menu-item"
-                      data-test="inventory-sidebar-link"
+                      data-testid="inventory-sidebar-link"
                       href="#"
                       id="inventory_sidebar_link"
                       role="button"
@@ -73,7 +73,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                       aria-controls="dynamic_catalog_submenu"
                       aria-expanded="false"
                       class="bm-item menu-item"
-                      data-test="dynamic-catalog-sidebar-link"
+                      data-testid="dynamic-catalog-sidebar-link"
                       href="#"
                       id="dynamic_catalog_sidebar_link"
                       role="button"
@@ -88,7 +88,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="about-sidebar-link"
+                      data-testid="about-sidebar-link"
                       href="https://saucelabs.com/"
                       id="about_sidebar_link"
                       style="display: block;"
@@ -98,7 +98,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="logout-sidebar-link"
+                      data-testid="logout-sidebar-link"
                       href="#"
                       id="logout_sidebar_link"
                       role="button"
@@ -109,7 +109,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="reset-sidebar-link"
+                      data-testid="reset-sidebar-link"
                       href="#"
                       id="reset_sidebar_link"
                       role="button"
@@ -136,7 +136,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
                     <img
                       alt="Close Menu"
                       class="bm-cross visual_failure"
-                      data-test="close-menu"
+                      data-testid="close-menu"
                       src="test-file-stub"
                       srcset="test-file-stub"
                       style="width: 100%; height: 100%;"
@@ -162,18 +162,18 @@ exports[`Cart should render correctly for a visual user 1`] = `
             <a
               aria-label="Cart, empty"
               class="shopping_cart_link"
-              data-test="shopping-cart-link"
+              data-testid="shopping-cart-link"
               role="button"
             />
           </div>
         </div>
         <div
           class="header_secondary_container"
-          data-test="secondary-header"
+          data-testid="secondary-header"
         >
           <span
             class="title"
-            data-test="title"
+            data-testid="title"
           >
             Your Cart
           </span>
@@ -181,24 +181,24 @@ exports[`Cart should render correctly for a visual user 1`] = `
       </header>
       <div
         class="cart_contents_container"
-        data-test="cart-contents-container"
+        data-testid="cart-contents-container"
         id="cart_contents_container"
         role="main"
       >
         <div>
           <div
             class="cart_list"
-            data-test="cart-list"
+            data-testid="cart-list"
           >
             <div
               class="cart_quantity_label"
-              data-test="cart-quantity-label"
+              data-testid="cart-quantity-label"
             >
               QTY
             </div>
             <div
               class="cart_desc_label"
-              data-test="cart-desc-label"
+              data-testid="cart-desc-label"
             >
               Description
             </div>
@@ -208,7 +208,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
           >
             <button
               class="btn btn_secondary back btn_medium"
-              data-test="continue-shopping"
+              data-testid="continue-shopping"
               id="continue-shopping"
               name="continue-shopping"
             >
@@ -221,7 +221,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
             </button>
             <button
               class="btn btn_action btn_medium checkout_button btn_visual_failure"
-              data-test="checkout"
+              data-testid="checkout"
               id="checkout"
               name="checkout"
             >
@@ -233,7 +233,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
     </div>
     <footer
       class="footer"
-      data-test="footer"
+      data-testid="footer"
     >
       <ul
         class="social"
@@ -242,7 +242,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
           class="social_x"
         >
           <a
-            data-test="social-x"
+            data-testid="social-x"
             href="https://x.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -254,7 +254,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
           class="social_facebook"
         >
           <a
-            data-test="social-facebook"
+            data-testid="social-facebook"
             href="https://www.facebook.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -266,7 +266,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
           class="social_linkedin"
         >
           <a
-            data-test="social-linkedin"
+            data-testid="social-linkedin"
             href="https://www.linkedin.com/company/sauce-labs/"
             rel="noreferrer"
             target="_blank"
@@ -277,7 +277,7 @@ exports[`Cart should render correctly for a visual user 1`] = `
       </ul>
       <div
         class="footer_copy"
-        data-test="footer-copy"
+        data-testid="footer-copy"
       >
         © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
       </div>
@@ -297,12 +297,12 @@ exports[`Cart should render correctly items 1`] = `
     >
       <header
         class="header_container"
-        data-test="header-container"
+        data-testid="header-container"
         id="header_container"
       >
         <div
           class="primary_header"
-          data-test="primary-header"
+          data-testid="primary-header"
         >
           <div
             id="menu_button_container"
@@ -323,7 +323,7 @@ exports[`Cart should render correctly items 1`] = `
                   <img
                     alt="Open Menu"
                     class="bm-icon visual_failure"
-                    data-test="open-menu"
+                    data-testid="open-menu"
                     src="test-file-stub"
                     srcset="test-file-stub"
                     style="width: 100%; height: 100%;"
@@ -346,7 +346,7 @@ exports[`Cart should render correctly items 1`] = `
                   >
                     <a
                       class="bm-item menu-item"
-                      data-test="inventory-sidebar-link"
+                      data-testid="inventory-sidebar-link"
                       href="#"
                       id="inventory_sidebar_link"
                       role="button"
@@ -359,7 +359,7 @@ exports[`Cart should render correctly items 1`] = `
                       aria-controls="dynamic_catalog_submenu"
                       aria-expanded="false"
                       class="bm-item menu-item"
-                      data-test="dynamic-catalog-sidebar-link"
+                      data-testid="dynamic-catalog-sidebar-link"
                       href="#"
                       id="dynamic_catalog_sidebar_link"
                       role="button"
@@ -374,7 +374,7 @@ exports[`Cart should render correctly items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="about-sidebar-link"
+                      data-testid="about-sidebar-link"
                       href="https://saucelabs.com/"
                       id="about_sidebar_link"
                       style="display: block;"
@@ -384,7 +384,7 @@ exports[`Cart should render correctly items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="logout-sidebar-link"
+                      data-testid="logout-sidebar-link"
                       href="#"
                       id="logout_sidebar_link"
                       role="button"
@@ -395,7 +395,7 @@ exports[`Cart should render correctly items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="reset-sidebar-link"
+                      data-testid="reset-sidebar-link"
                       href="#"
                       id="reset_sidebar_link"
                       role="button"
@@ -422,7 +422,7 @@ exports[`Cart should render correctly items 1`] = `
                     <img
                       alt="Close Menu"
                       class="bm-cross visual_failure"
-                      data-test="close-menu"
+                      data-testid="close-menu"
                       src="test-file-stub"
                       srcset="test-file-stub"
                       style="width: 100%; height: 100%;"
@@ -448,12 +448,12 @@ exports[`Cart should render correctly items 1`] = `
             <a
               aria-label="Cart, 3 items"
               class="shopping_cart_link"
-              data-test="shopping-cart-link"
+              data-testid="shopping-cart-link"
               role="button"
             >
               <span
                 class="shopping_cart_badge"
-                data-test="shopping-cart-badge"
+                data-testid="shopping-cart-badge"
               >
                 3
               </span>
@@ -462,11 +462,11 @@ exports[`Cart should render correctly items 1`] = `
         </div>
         <div
           class="header_secondary_container"
-          data-test="secondary-header"
+          data-testid="secondary-header"
         >
           <span
             class="title"
-            data-test="title"
+            data-testid="title"
           >
             Your Cart
           </span>
@@ -474,34 +474,34 @@ exports[`Cart should render correctly items 1`] = `
       </header>
       <div
         class="cart_contents_container"
-        data-test="cart-contents-container"
+        data-testid="cart-contents-container"
         id="cart_contents_container"
         role="main"
       >
         <div>
           <div
             class="cart_list"
-            data-test="cart-list"
+            data-testid="cart-list"
           >
             <div
               class="cart_quantity_label"
-              data-test="cart-quantity-label"
+              data-testid="cart-quantity-label"
             >
               QTY
             </div>
             <div
               class="cart_desc_label"
-              data-test="cart-desc-label"
+              data-testid="cart-desc-label"
             >
               Description
             </div>
             <div
               class="cart_item"
-              data-test="inventory-item"
+              data-testid="inventory-item"
             >
               <div
                 class="cart_quantity"
-                data-test="item-quantity"
+                data-testid="item-quantity"
               >
                 1
               </div>
@@ -510,21 +510,21 @@ exports[`Cart should render correctly items 1`] = `
               >
                 <a
                   aria-label="View details for Sauce Labs Bolt T-Shirt"
-                  data-test="item-1-title-link"
+                  data-testid="item-1-title-link"
                   href="#"
                   id="item_1_title_link"
                   role="button"
                 >
                   <div
                     class="inventory_item_name"
-                    data-test="inventory-item-name"
+                    data-testid="inventory-item-name"
                   >
                     Sauce Labs Bolt T-Shirt
                   </div>
                 </a>
                 <div
                   class="inventory_item_desc"
-                  data-test="inventory-item-desc"
+                  data-testid="inventory-item-desc"
                 >
                   Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
                 </div>
@@ -533,13 +533,13 @@ exports[`Cart should render correctly items 1`] = `
                 >
                   <div
                     class="inventory_item_price"
-                    data-test="inventory-item-price"
+                    data-testid="inventory-item-price"
                   >
                     $15.99
                   </div>
                   <button
                     class="btn btn_secondary btn_small cart_button"
-                    data-test="remove-sauce-labs-bolt-t-shirt"
+                    data-testid="remove-sauce-labs-bolt-t-shirt"
                     id="remove-sauce-labs-bolt-t-shirt"
                     name="remove-sauce-labs-bolt-t-shirt"
                   >
@@ -550,11 +550,11 @@ exports[`Cart should render correctly items 1`] = `
             </div>
             <div
               class="cart_item"
-              data-test="inventory-item"
+              data-testid="inventory-item"
             >
               <div
                 class="cart_quantity"
-                data-test="item-quantity"
+                data-testid="item-quantity"
               >
                 1
               </div>
@@ -563,21 +563,21 @@ exports[`Cart should render correctly items 1`] = `
               >
                 <a
                   aria-label="View details for Sauce Labs Onesie"
-                  data-test="item-2-title-link"
+                  data-testid="item-2-title-link"
                   href="#"
                   id="item_2_title_link"
                   role="button"
                 >
                   <div
                     class="inventory_item_name"
-                    data-test="inventory-item-name"
+                    data-testid="inventory-item-name"
                   >
                     Sauce Labs Onesie
                   </div>
                 </a>
                 <div
                   class="inventory_item_desc"
-                  data-test="inventory-item-desc"
+                  data-testid="inventory-item-desc"
                 >
                   Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
                 </div>
@@ -586,13 +586,13 @@ exports[`Cart should render correctly items 1`] = `
                 >
                   <div
                     class="inventory_item_price"
-                    data-test="inventory-item-price"
+                    data-testid="inventory-item-price"
                   >
                     $7.99
                   </div>
                   <button
                     class="btn btn_secondary btn_small cart_button"
-                    data-test="remove-sauce-labs-onesie"
+                    data-testid="remove-sauce-labs-onesie"
                     id="remove-sauce-labs-onesie"
                     name="remove-sauce-labs-onesie"
                   >
@@ -603,11 +603,11 @@ exports[`Cart should render correctly items 1`] = `
             </div>
             <div
               class="cart_item"
-              data-test="inventory-item"
+              data-testid="inventory-item"
             >
               <div
                 class="cart_quantity"
-                data-test="item-quantity"
+                data-testid="item-quantity"
               >
                 1
               </div>
@@ -616,21 +616,21 @@ exports[`Cart should render correctly items 1`] = `
               >
                 <a
                   aria-label="View details for Test.allTheThings() T-Shirt (Red)"
-                  data-test="item-3-title-link"
+                  data-testid="item-3-title-link"
                   href="#"
                   id="item_3_title_link"
                   role="button"
                 >
                   <div
                     class="inventory_item_name"
-                    data-test="inventory-item-name"
+                    data-testid="inventory-item-name"
                   >
                     Test.allTheThings() T-Shirt (Red)
                   </div>
                 </a>
                 <div
                   class="inventory_item_desc"
-                  data-test="inventory-item-desc"
+                  data-testid="inventory-item-desc"
                 >
                   This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
                 </div>
@@ -639,13 +639,13 @@ exports[`Cart should render correctly items 1`] = `
                 >
                   <div
                     class="inventory_item_price"
-                    data-test="inventory-item-price"
+                    data-testid="inventory-item-price"
                   >
                     $15.99
                   </div>
                   <button
                     class="btn btn_secondary btn_small cart_button"
-                    data-test="remove-test.allthethings()-t-shirt-(red)"
+                    data-testid="remove-test.allthethings()-t-shirt-(red)"
                     id="remove-test.allthethings()-t-shirt-(red)"
                     name="remove-test.allthethings()-t-shirt-(red)"
                   >
@@ -660,7 +660,7 @@ exports[`Cart should render correctly items 1`] = `
           >
             <button
               class="btn btn_secondary back btn_medium"
-              data-test="continue-shopping"
+              data-testid="continue-shopping"
               id="continue-shopping"
               name="continue-shopping"
             >
@@ -673,7 +673,7 @@ exports[`Cart should render correctly items 1`] = `
             </button>
             <button
               class="btn btn_action btn_medium checkout_button btn_visual_failure"
-              data-test="checkout"
+              data-testid="checkout"
               id="checkout"
               name="checkout"
             >
@@ -685,7 +685,7 @@ exports[`Cart should render correctly items 1`] = `
     </div>
     <footer
       class="footer"
-      data-test="footer"
+      data-testid="footer"
     >
       <ul
         class="social"
@@ -694,7 +694,7 @@ exports[`Cart should render correctly items 1`] = `
           class="social_x"
         >
           <a
-            data-test="social-x"
+            data-testid="social-x"
             href="https://x.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -706,7 +706,7 @@ exports[`Cart should render correctly items 1`] = `
           class="social_facebook"
         >
           <a
-            data-test="social-facebook"
+            data-testid="social-facebook"
             href="https://www.facebook.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -718,7 +718,7 @@ exports[`Cart should render correctly items 1`] = `
           class="social_linkedin"
         >
           <a
-            data-test="social-linkedin"
+            data-testid="social-linkedin"
             href="https://www.linkedin.com/company/sauce-labs/"
             rel="noreferrer"
             target="_blank"
@@ -729,7 +729,7 @@ exports[`Cart should render correctly items 1`] = `
       </ul>
       <div
         class="footer_copy"
-        data-test="footer-copy"
+        data-testid="footer-copy"
       >
         © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
       </div>
@@ -749,12 +749,12 @@ exports[`Cart should render correctly without any items 1`] = `
     >
       <header
         class="header_container"
-        data-test="header-container"
+        data-testid="header-container"
         id="header_container"
       >
         <div
           class="primary_header"
-          data-test="primary-header"
+          data-testid="primary-header"
         >
           <div
             id="menu_button_container"
@@ -775,7 +775,7 @@ exports[`Cart should render correctly without any items 1`] = `
                   <img
                     alt="Open Menu"
                     class="bm-icon"
-                    data-test="open-menu"
+                    data-testid="open-menu"
                     src="test-file-stub"
                     srcset="test-file-stub"
                     style="width: 100%; height: 100%;"
@@ -798,7 +798,7 @@ exports[`Cart should render correctly without any items 1`] = `
                   >
                     <a
                       class="bm-item menu-item"
-                      data-test="inventory-sidebar-link"
+                      data-testid="inventory-sidebar-link"
                       href="#"
                       id="inventory_sidebar_link"
                       role="button"
@@ -811,7 +811,7 @@ exports[`Cart should render correctly without any items 1`] = `
                       aria-controls="dynamic_catalog_submenu"
                       aria-expanded="false"
                       class="bm-item menu-item"
-                      data-test="dynamic-catalog-sidebar-link"
+                      data-testid="dynamic-catalog-sidebar-link"
                       href="#"
                       id="dynamic_catalog_sidebar_link"
                       role="button"
@@ -826,7 +826,7 @@ exports[`Cart should render correctly without any items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="about-sidebar-link"
+                      data-testid="about-sidebar-link"
                       href="https://saucelabs.com/"
                       id="about_sidebar_link"
                       style="display: block;"
@@ -836,7 +836,7 @@ exports[`Cart should render correctly without any items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="logout-sidebar-link"
+                      data-testid="logout-sidebar-link"
                       href="#"
                       id="logout_sidebar_link"
                       role="button"
@@ -847,7 +847,7 @@ exports[`Cart should render correctly without any items 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="reset-sidebar-link"
+                      data-testid="reset-sidebar-link"
                       href="#"
                       id="reset_sidebar_link"
                       role="button"
@@ -874,7 +874,7 @@ exports[`Cart should render correctly without any items 1`] = `
                     <img
                       alt="Close Menu"
                       class="bm-cross"
-                      data-test="close-menu"
+                      data-testid="close-menu"
                       src="test-file-stub"
                       srcset="test-file-stub"
                       style="width: 100%; height: 100%;"
@@ -900,18 +900,18 @@ exports[`Cart should render correctly without any items 1`] = `
             <a
               aria-label="Cart, empty"
               class="shopping_cart_link"
-              data-test="shopping-cart-link"
+              data-testid="shopping-cart-link"
               role="button"
             />
           </div>
         </div>
         <div
           class="header_secondary_container"
-          data-test="secondary-header"
+          data-testid="secondary-header"
         >
           <span
             class="title"
-            data-test="title"
+            data-testid="title"
           >
             Your Cart
           </span>
@@ -919,24 +919,24 @@ exports[`Cart should render correctly without any items 1`] = `
       </header>
       <div
         class="cart_contents_container"
-        data-test="cart-contents-container"
+        data-testid="cart-contents-container"
         id="cart_contents_container"
         role="main"
       >
         <div>
           <div
             class="cart_list"
-            data-test="cart-list"
+            data-testid="cart-list"
           >
             <div
               class="cart_quantity_label"
-              data-test="cart-quantity-label"
+              data-testid="cart-quantity-label"
             >
               QTY
             </div>
             <div
               class="cart_desc_label"
-              data-test="cart-desc-label"
+              data-testid="cart-desc-label"
             >
               Description
             </div>
@@ -946,7 +946,7 @@ exports[`Cart should render correctly without any items 1`] = `
           >
             <button
               class="btn btn_secondary back btn_medium"
-              data-test="continue-shopping"
+              data-testid="continue-shopping"
               id="continue-shopping"
               name="continue-shopping"
             >
@@ -959,7 +959,7 @@ exports[`Cart should render correctly without any items 1`] = `
             </button>
             <button
               class="btn btn_action btn_medium checkout_button "
-              data-test="checkout"
+              data-testid="checkout"
               id="checkout"
               name="checkout"
             >
@@ -971,7 +971,7 @@ exports[`Cart should render correctly without any items 1`] = `
     </div>
     <footer
       class="footer"
-      data-test="footer"
+      data-testid="footer"
     >
       <ul
         class="social"
@@ -980,7 +980,7 @@ exports[`Cart should render correctly without any items 1`] = `
           class="social_x"
         >
           <a
-            data-test="social-x"
+            data-testid="social-x"
             href="https://x.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -992,7 +992,7 @@ exports[`Cart should render correctly without any items 1`] = `
           class="social_facebook"
         >
           <a
-            data-test="social-facebook"
+            data-testid="social-facebook"
             href="https://www.facebook.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -1004,7 +1004,7 @@ exports[`Cart should render correctly without any items 1`] = `
           class="social_linkedin"
         >
           <a
-            data-test="social-linkedin"
+            data-testid="social-linkedin"
             href="https://www.linkedin.com/company/sauce-labs/"
             rel="noreferrer"
             target="_blank"
@@ -1015,7 +1015,7 @@ exports[`Cart should render correctly without any items 1`] = `
       </ul>
       <div
         class="footer_copy"
-        data-test="footer-copy"
+        data-testid="footer-copy"
       >
         © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
       </div>

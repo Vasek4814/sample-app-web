@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { slide as Menu } from "react-burger-menu";
-import { ShoppingCart } from "../utils/shopping-cart";
-import { ROUTES } from "../utils/Constants";
-import {
-  isProblemUser,
-  isVisualUser,
-  removeCredentials,
-} from "../utils/Credentials";
-import menuClosePng from "../assets/img/close.png";
-import menuCloseSvg from "../assets/svg/close@3x.svg";
-import menuIconPng from "../assets/img/menu.png";
-import menuIconSvg from "../assets/svg/menu3x.svg";
-import "./DrawerMenu.css";
+import React, { useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { slide as Menu } from 'react-burger-menu';
+import { ShoppingCart } from '../utils/shopping-cart';
+import { ROUTES } from '../utils/Constants';
+import { isProblemUser, isVisualUser, removeCredentials } from '../utils/Credentials';
+import menuClosePng from '../assets/img/close.png';
+import menuCloseSvg from '../assets/svg/close@3x.svg';
+import menuIconPng from '../assets/img/menu.png';
+import menuIconSvg from '../assets/svg/menu3x.svg';
+import './DrawerMenu.css';
 
 const DrawerMenu = ({ history }) => {
   const [isDynamicCatalogOpen, setIsDynamicCatalogOpen] = useState(false);
@@ -21,11 +17,9 @@ const DrawerMenu = ({ history }) => {
     // Wipe out our shopping cart now
     ShoppingCart.resetCart();
   };
-  const aboutLink = isProblemUser()
-    ? "https://saucelabs.com/error/404"
-    : "https://saucelabs.com/";
+  const aboutLink = isProblemUser() ? 'https://saucelabs.com/error/404' : 'https://saucelabs.com/';
   const isVisualFailure = isVisualUser();
-  const imageClass = isVisualFailure ? "visual_failure" : "";
+  const imageClass = isVisualFailure ? 'visual_failure' : '';
 
   return (
     <Menu
@@ -35,7 +29,7 @@ const DrawerMenu = ({ history }) => {
           className={imageClass}
           srcSet={menuIconSvg}
           alt="Open Menu"
-          data-test="open-menu"
+          data-testid="open-menu"
         />
       }
       customCrossIcon={
@@ -44,14 +38,13 @@ const DrawerMenu = ({ history }) => {
           className={imageClass}
           srcSet={menuCloseSvg}
           alt="Close Menu"
-          data-test="close-menu"
+          data-testid="close-menu"
         />
       }
-      outerContainerId={"page_wrapper"}
-      pageWrapId={"contents_wrapper"}
+      outerContainerId={'page_wrapper'}
+      pageWrapId={'contents_wrapper'}
       noOverlay
-      aria-label="Main menu"
-    >
+      aria-label="Main menu">
       <a
         id="inventory_sidebar_link"
         className="menu-item"
@@ -60,9 +53,8 @@ const DrawerMenu = ({ history }) => {
           evt.preventDefault();
           history.push(ROUTES.INVENTORY);
         }}
-        data-test="inventory-sidebar-link"
-        role="button"
-      >
+        data-testid="inventory-sidebar-link"
+        role="button">
         All Items
       </a>
       <a
@@ -73,19 +65,18 @@ const DrawerMenu = ({ history }) => {
           evt.preventDefault();
           setIsDynamicCatalogOpen((open) => !open);
         }}
-        data-test="dynamic-catalog-sidebar-link"
+        data-testid="dynamic-catalog-sidebar-link"
         role="button"
         aria-expanded={isDynamicCatalogOpen}
-        aria-controls="dynamic_catalog_submenu"
-      >
+        aria-controls="dynamic_catalog_submenu">
         Dynamic Catalog
         <span
-          className={`submenu-chevron${isDynamicCatalogOpen ? " open" : ""}`}
+          className={`submenu-chevron${isDynamicCatalogOpen ? ' open' : ''}`}
           aria-hidden="true"
         />
       </a>
       {isDynamicCatalogOpen && (
-        <div id="dynamic_catalog_submenu" data-test="dynamic-catalog-submenu">
+        <div id="dynamic_catalog_submenu" data-testid="dynamic-catalog-submenu">
           <a
             id="dynamic_catalog_lazy_load_link"
             className="menu-item submenu-item"
@@ -94,9 +85,8 @@ const DrawerMenu = ({ history }) => {
               evt.preventDefault();
               history.push(ROUTES.DYNAMIC_CATALOG_LAZY_LOAD);
             }}
-            data-test="dynamic-catalog-lazy-load-link"
-            role="button"
-          >
+            data-testid="dynamic-catalog-lazy-load-link"
+            role="button">
             Lazy Load
           </a>
           <a
@@ -107,9 +97,8 @@ const DrawerMenu = ({ history }) => {
               evt.preventDefault();
               history.push(ROUTES.DYNAMIC_CATALOG_SPINNER);
             }}
-            data-test="dynamic-catalog-spinner-link"
-            role="button"
-          >
+            data-testid="dynamic-catalog-spinner-link"
+            role="button">
             Spinner
           </a>
           <a
@@ -120,9 +109,8 @@ const DrawerMenu = ({ history }) => {
               evt.preventDefault();
               history.push(ROUTES.DYNAMIC_CATALOG_SLIDER);
             }}
-            data-test="dynamic-catalog-slider-link"
-            role="button"
-          >
+            data-testid="dynamic-catalog-slider-link"
+            role="button">
             Slider
           </a>
         </div>
@@ -131,8 +119,7 @@ const DrawerMenu = ({ history }) => {
         id="about_sidebar_link"
         className="menu-item"
         href={aboutLink}
-        data-test="about-sidebar-link"
-      >
+        data-testid="about-sidebar-link">
         About
       </a>
       <a
@@ -144,9 +131,8 @@ const DrawerMenu = ({ history }) => {
           removeCredentials();
           history.push(ROUTES.LOGIN);
         }}
-        data-test="logout-sidebar-link"
-        role="button"
-      >
+        data-testid="logout-sidebar-link"
+        role="button">
         Logout
       </a>
       <a
@@ -157,9 +143,8 @@ const DrawerMenu = ({ history }) => {
           evt.preventDefault();
           resetStorage();
         }}
-        data-test="reset-sidebar-link"
-        role="button"
-      >
+        data-testid="reset-sidebar-link"
+        role="button">
         Reset App State
       </a>
     </Menu>

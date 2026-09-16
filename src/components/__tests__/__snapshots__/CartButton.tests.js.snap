@@ -5,12 +5,12 @@ exports[`CartButton should render the badge if products have been added into the
   <a
     aria-label="Cart, 3 items"
     class="shopping_cart_link"
-    data-test="shopping-cart-link"
+    data-testid="shopping-cart-link"
     role="button"
   >
     <span
       class="shopping_cart_badge"
-      data-test="shopping-cart-badge"
+      data-testid="shopping-cart-badge"
     >
       3
     </span>
@@ -23,7 +23,7 @@ exports[`CartButton should render with default props 1`] = `
   <a
     aria-label="Cart, empty"
     class="shopping_cart_link"
-    data-test="shopping-cart-link"
+    data-testid="shopping-cart-link"
     role="button"
   />
 </DocumentFragment>

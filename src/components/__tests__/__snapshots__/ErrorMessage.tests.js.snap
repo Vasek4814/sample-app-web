@@ -16,13 +16,13 @@ exports[`ErrorMessage should render an error message when there is an error 1`] 
     class="error-message-container error"
   >
     <h3
-      data-test="error"
+      data-testid="error"
       role="alert"
     >
       <button
         aria-label="Dismiss error"
         class="error-button"
-        data-test="error-button"
+        data-testid="error-button"
         type="button"
       >
         <svg

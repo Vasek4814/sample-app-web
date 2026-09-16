@@ -4,14 +4,14 @@ exports[`InventoryListItem should render with default props 1`] = `
 <DocumentFragment>
   <div
     class="inventory_item"
-    data-test="inventory-item"
+    data-testid="inventory-item"
   >
     <div
       class="inventory_item_img"
     >
       <a
         aria-label="View details for Swag Item name"
-        data-test="item-1-img-link"
+        data-testid="item-1-img-link"
         href="#"
         id="item_1_img_link"
         role="button"
@@ -19,34 +19,34 @@ exports[`InventoryListItem should render with default props 1`] = `
         <img
           alt="Swag Item name"
           class="inventory_item_img"
-          data-test="inventory-item-swag-item-name-img"
+          data-testid="inventory-item-swag-item-name-img"
         />
       </a>
     </div>
     <div
       class="inventory_item_description"
-      data-test="inventory-item-description"
+      data-testid="inventory-item-description"
     >
       <div
         class="inventory_item_label"
       >
         <a
           aria-label="View details for Swag Item name"
-          data-test="item-1-title-link"
+          data-testid="item-1-title-link"
           href="#"
           id="item_1_title_link"
           role="button"
         >
           <div
             class="inventory_item_name "
-            data-test="inventory-item-name"
+            data-testid="inventory-item-name"
           >
             Swag Item name
           </div>
         </a>
         <div
           class="inventory_item_desc"
-          data-test="inventory-item-desc"
+          data-testid="inventory-item-desc"
         >
           Swag Item description
         </div>
@@ -56,13 +56,13 @@ exports[`InventoryListItem should render with default props 1`] = `
       >
         <div
           class="inventory_item_price"
-          data-test="inventory-item-price"
+          data-testid="inventory-item-price"
         >
           $9.99
         </div>
         <button
           class="btn btn_primary btn_small btn_inventory "
-          data-test="add-to-cart-swag-item-name"
+          data-testid="add-to-cart-swag-item-name"
           id="add-to-cart-swag-item-name"
           name="add-to-cart-swag-item-name"
         >
@@ -78,14 +78,14 @@ exports[`InventoryListItem should render with text aligned right 1`] = `
 <DocumentFragment>
   <div
     class="inventory_item"
-    data-test="inventory-item"
+    data-testid="inventory-item"
   >
     <div
       class="inventory_item_img"
     >
       <a
         aria-label="View details for Swag Item name"
-        data-test="item-1-img-link"
+        data-testid="item-1-img-link"
         href="#"
         id="item_1_img_link"
         role="button"
@@ -93,34 +93,34 @@ exports[`InventoryListItem should render with text aligned right 1`] = `
         <img
           alt="Swag Item name"
           class="inventory_item_img"
-          data-test="inventory-item-swag-item-name-img"
+          data-testid="inventory-item-swag-item-name-img"
         />
       </a>
     </div>
     <div
       class="inventory_item_description"
-      data-test="inventory-item-description"
+      data-testid="inventory-item-description"
     >
       <div
         class="inventory_item_label"
       >
         <a
           aria-label="View details for Swag Item name"
-          data-test="item-1-title-link"
+          data-testid="item-1-title-link"
           href="#"
           id="item_1_title_link"
           role="button"
         >
           <div
             class="inventory_item_name align_right"
-            data-test="inventory-item-name"
+            data-testid="inventory-item-name"
           >
             Swag Item name
           </div>
         </a>
         <div
           class="inventory_item_desc"
-          data-test="inventory-item-desc"
+          data-testid="inventory-item-desc"
         >
           Swag Item description
         </div>
@@ -130,13 +130,13 @@ exports[`InventoryListItem should render with text aligned right 1`] = `
       >
         <div
           class="inventory_item_price"
-          data-test="inventory-item-price"
+          data-testid="inventory-item-price"
         >
           $9.99
         </div>
         <button
           class="btn btn_primary btn_small btn_inventory "
-          data-test="add-to-cart-swag-item-name"
+          data-testid="add-to-cart-swag-item-name"
           id="add-to-cart-swag-item-name"
           name="add-to-cart-swag-item-name"
         >

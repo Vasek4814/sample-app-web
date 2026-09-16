@@ -1,26 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import "./ErrorMessage.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import './ErrorMessage.css';
 
 const ErrorMessage = ({ isError, errorMessage, onClick, ...props }) => {
   return (
-    <div
-      className={`error-message-container${isError ? " error" : ""}`}
-      {...props}
-    >
+    <div className={`error-message-container${isError ? ' error' : ''}`} {...props}>
       {isError && (
         // This component is not structured how it should,
         // But this is done to keep backwards compatibility
-        <h3 data-test="error" role="alert">
+        <h3 data-testid="error" role="alert">
           <button
             type="button"
             className="error-button"
             onClick={onClick}
-            data-test="error-button"
-            aria-label="Dismiss error"
-          >
+            data-testid="error-button"
+            aria-label="Dismiss error">
             <FontAwesomeIcon icon={faTimes} />
           </button>
           {errorMessage}

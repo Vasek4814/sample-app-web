@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import HeaderContainer from "../components/HeaderContainer";
-import SwagLabsFooter from "../components/Footer";
-import DynamicCatalogItemCard from "../components/DynamicCatalogItemCard";
-import { InventoryData } from "../utils/InventoryData";
-import "./DynamicCatalogSlider.css";
+import React, { useEffect, useState } from 'react';
+import HeaderContainer from '../components/HeaderContainer';
+import SwagLabsFooter from '../components/Footer';
+import DynamicCatalogItemCard from '../components/DynamicCatalogItemCard';
+import { InventoryData } from '../utils/InventoryData';
+import './DynamicCatalogSlider.css';
 
 export const SLIDER_INTERVAL_MS = 2000;
 
@@ -26,26 +26,17 @@ const DynamicCatalogSlider = () => {
         <HeaderContainer secondaryTitle="Dynamic Catalog - Slider" />
         <div
           className="dynamic_catalog_slider_container"
-          data-test="dynamic-catalog-slider-container"
-        >
-          <DynamicCatalogItemCard
-            item={activeItem}
-            testId="dynamic-catalog-slider-item"
-          />
-          <div
-            className="dynamic_catalog_slider_dots"
-            data-test="dynamic-catalog-slider-dots"
-          >
+          data-testid="dynamic-catalog-slider-container">
+          <DynamicCatalogItemCard item={activeItem} testId="dynamic-catalog-slider-item" />
+          <div className="dynamic_catalog_slider_dots" data-testid="dynamic-catalog-slider-dots">
             {InventoryData.map((item, index) => (
               <button
                 key={item.id}
                 type="button"
-                className={`dynamic_catalog_slider_dot${
-                  index === activeIndex ? " active" : ""
-                }`}
+                className={`dynamic_catalog_slider_dot${index === activeIndex ? ' active' : ''}`}
                 aria-label={`Show ${item.name}`}
                 aria-current={index === activeIndex}
-                data-test={`dynamic-catalog-slider-dot-${index}`}
+                data-testid={`dynamic-catalog-slider-dot-${index}`}
                 onClick={() => setActiveIndex(index)}
               />
             ))}

@@ -1,16 +1,16 @@
-import React from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { isErrorUser, isProblemUser } from "../utils/Credentials";
-import { ROUTES } from "../utils/Constants";
-import { ShoppingCart } from "../utils/shopping-cart";
-import { InventoryData } from "../utils/InventoryData";
-import { calculateOrderTotals } from "../utils/orderCalculations";
-import CartItem from "../components/CartItem";
-import SwagLabsFooter from "../components/Footer";
-import HeaderContainer from "../components/HeaderContainer";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "../components/Button";
-import "./CheckOutStepTwo.css";
+import React from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { isErrorUser, isProblemUser } from '../utils/Credentials';
+import { ROUTES } from '../utils/Constants';
+import { ShoppingCart } from '../utils/shopping-cart';
+import { InventoryData } from '../utils/InventoryData';
+import { calculateOrderTotals } from '../utils/orderCalculations';
+import CartItem from '../components/CartItem';
+import SwagLabsFooter from '../components/Footer';
+import HeaderContainer from '../components/HeaderContainer';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from '../components/Button';
+import './CheckOutStepTwo.css';
 
 const CheckOutStepTwo = ({ history, location }) => {
   const clearCart = () => {
@@ -28,10 +28,9 @@ const CheckOutStepTwo = ({ history, location }) => {
   };
   const personalInfo = location?.state ?? {};
   const contents = ShoppingCart.getCartContents();
-  const { orderTotal, orderTax, orderGrandTotal } = calculateOrderTotals(
-    contents,
-    { doublePrices: isProblemUser() },
-  );
+  const { orderTotal, orderTax, orderGrandTotal } = calculateOrderTotals(contents, {
+    doublePrices: isProblemUser(),
+  });
 
   return (
     <div id="page_wrapper" className="page_wrapper">
@@ -40,18 +39,14 @@ const CheckOutStepTwo = ({ history, location }) => {
         <div
           id="checkout_summary_container"
           className="checkout_summary_container"
-          data-test="checkout-summary-container"
-          role="main"
-        >
+          data-testid="checkout-summary-container"
+          role="main">
           <div>
-            <div className="cart_list" data-test="cart-list">
-              <div
-                className="cart_quantity_label"
-                data-test="cart-quantity-label"
-              >
+            <div className="cart_list" data-testid="cart-list">
+              <div className="cart_quantity_label" data-testid="cart-quantity-label">
                 QTY
               </div>
-              <div className="cart_desc_label" data-test="cart-desc-label">
+              <div className="cart_desc_label" data-testid="cart-desc-label">
                 Description
               </div>
               {contents.map((item, i) => {
@@ -59,43 +54,28 @@ const CheckOutStepTwo = ({ history, location }) => {
               })}
             </div>
             <div className="summary_info">
-              <div
-                className="summary_info_label"
-                data-test="payment-info-label"
-              >
+              <div className="summary_info_label" data-testid="payment-info-label">
                 Payment Information:
               </div>
-              <div
-                className="summary_value_label"
-                data-test="payment-info-value"
-              >
+              <div className="summary_value_label" data-testid="payment-info-value">
                 SauceCard #31337
               </div>
-              <div
-                className="summary_info_label"
-                data-test="shipping-info-label"
-              >
+              <div className="summary_info_label" data-testid="shipping-info-label">
                 Shipping Information:
               </div>
-              <div
-                className="summary_value_label"
-                data-test="shipping-info-value"
-              >
+              <div className="summary_value_label" data-testid="shipping-info-value">
                 Free Pony Express Delivery!
               </div>
-              <div className="summary_info_label" data-test="total-info-label">
+              <div className="summary_info_label" data-testid="total-info-label">
                 Price Total
               </div>
-              <div
-                className="summary_subtotal_label"
-                data-test="subtotal-label"
-              >
+              <div className="summary_subtotal_label" data-testid="subtotal-label">
                 Item total: ${orderTotal}
               </div>
-              <div className="summary_tax_label" data-test="tax-label">
+              <div className="summary_tax_label" data-testid="tax-label">
                 Tax: ${orderTax}
               </div>
-              <div className="summary_total_label" data-test="total-label">
+              <div className="summary_total_label" data-testid="total-label">
                 Total: ${orderGrandTotal}
               </div>
               <div className="cart_footer">

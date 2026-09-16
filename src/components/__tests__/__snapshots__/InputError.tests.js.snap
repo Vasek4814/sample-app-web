@@ -39,7 +39,7 @@ exports[`InputError should render an input with a testId 1`] = `
     <input
       aria-label=""
       class="input_error form_input"
-      data-test="some-id"
+      data-testid="some-id"
       id="some-id"
       name="some-id"
       placeholder=""
@@ -58,7 +58,7 @@ exports[`InputError should render an input with custom props 1`] = `
     <input
       aria-label=""
       class="input_error form_input"
-      data-test="some-id"
+      data-testid="some-id"
       foo="bar"
       id="some-id"
       name="own-name-id"
@@ -78,7 +78,7 @@ exports[`InputError should render an input with full props 1`] = `
     <input
       aria-label="The placeholder"
       class="input_error form_input"
-      data-test="some-id"
+      data-testid="some-id"
       foo="bar"
       id="some-id"
       name="own-name-id"

@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { isProblemUser, isErrorUser } from "../utils/Credentials";
-import { ROUTES } from "../utils/Constants";
-import SwagLabsFooter from "../components/Footer";
-import HeaderContainer from "../components/HeaderContainer";
-import InputError, { INPUT_TYPES } from "../components/InputError";
-import ErrorMessage from "../components/ErrorMessage";
-import SubmitButton from "../components/SubmitButton";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "../components/Button";
-import "./CheckOutStepOne.css";
+import React, { useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { isProblemUser, isErrorUser } from '../utils/Credentials';
+import { ROUTES } from '../utils/Constants';
+import SwagLabsFooter from '../components/Footer';
+import HeaderContainer from '../components/HeaderContainer';
+import InputError, { INPUT_TYPES } from '../components/InputError';
+import ErrorMessage from '../components/ErrorMessage';
+import SubmitButton from '../components/SubmitButton';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from '../components/Button';
+import './CheckOutStepOne.css';
 
 const CheckOutStepOne = ({ history }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [error, setError] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [error, setError] = useState('');
   const dismissError = () => {
-    setError("");
+    setError('');
   };
   const handleFirstNameChange = (evt) => {
     setFirstName(evt.target.value);
@@ -40,16 +40,16 @@ const CheckOutStepOne = ({ history }) => {
     evt.preventDefault();
 
     if (!firstName) {
-      return setError("First Name is required");
+      return setError('First Name is required');
     }
 
     // Allow to pass for error_user without lastName, as it is impossible to set (errors are thrown)
     if (!lastName && !isErrorUser()) {
-      return setError("Last Name is required");
+      return setError('Last Name is required');
     }
 
     if (!postalCode) {
-      return setError("Postal Code is required");
+      return setError('Postal Code is required');
     }
 
     // If we're here, we have our required info. Redirect!
@@ -57,7 +57,7 @@ const CheckOutStepOne = ({ history }) => {
       state: { firstName, lastName, postalCode },
     });
 
-    return "";
+    return '';
   };
 
   return (
@@ -67,9 +67,8 @@ const CheckOutStepOne = ({ history }) => {
         <div
           id="checkout_info_container"
           className="checkout_info_container"
-          data-test="checkout-info-container"
-          role="main"
-        >
+          data-testid="checkout-info-container"
+          role="main">
           <div className="checkout_info_wrapper">
             <form onSubmit={handleSubmit} aria-label="Checkout information">
               <div className="checkout_info">

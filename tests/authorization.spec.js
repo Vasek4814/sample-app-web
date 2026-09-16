@@ -16,7 +16,7 @@ test.describe('Авторизация', () => {
     await page.locator('#user-name').fill('');
     await page.locator('#password').fill('');
     await page.locator('#login-button').click();
-    await expect(page.locator('[data-test="error"]')).toContainText(
+    await expect(page.locator('[data-testid="error"]')).toContainText(
       'Epic sadface: Username is required',
     );
   });
@@ -25,7 +25,7 @@ test.describe('Авторизация', () => {
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secretsauce');
     await page.locator('#login-button').click();
-    await expect(page.locator('[data-test="error"]')).toContainText(
+    await expect(page.locator('[data-testid="error"]')).toContainText(
       'Epic sadface: Username and password do not match any user in this service',
     );
   });
@@ -34,7 +34,7 @@ test.describe('Авторизация', () => {
     await page.locator('#user-name').fill('locked_out_user');
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').click();
-    await expect(page.locator('[data-test="error"]')).toContainText(
+    await expect(page.locator('[data-testid="error"]')).toContainText(
       'Epic sadface: Sorry, this user has been locked out.',
     );
   });
@@ -44,7 +44,7 @@ test.describe('Авторизация', () => {
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').click();
     await page.locator('svg[data-icon="xmark"]').click();
-    await expect(page.locator('[data-test="error"]')).toBeHidden();
+    await expect(page.locator('[data-testid="error"]')).toBeHidden();
   });
 });
 
@@ -61,7 +61,7 @@ test('После logout прямой переход на /inventory.html пер�
 
   await page.goto('https://saucedemo.com/inventory.html');
 
-  await expect(page.locator('[data-test="error"]')).toContainText(
+  await expect(page.locator('[data-testid="error"]')).toContainText(
     "Epic sadface: You can only access '/inventory.html' when you are logged in.",
   );
 });

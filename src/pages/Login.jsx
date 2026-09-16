@@ -1,23 +1,19 @@
-import React, { useEffect, Fragment } from "react";
-import { withRouter } from "../utils/withRouter";
-import { useState } from "react";
-import "./Login.css";
-import {
-  isLockedOutUser,
-  setCredentials,
-  verifyCredentials,
-} from "../utils/Credentials";
-import { ROUTES, VALID_USERNAMES, VALID_PASSWORD } from "../utils/Constants";
-import InputError, { INPUT_TYPES } from "../components/InputError";
-import SubmitButton from "../components/SubmitButton";
-import ErrorMessage from "../components/ErrorMessage";
-import { BacktraceClient } from "@backtrace/react";
+import React, { useEffect, Fragment } from 'react';
+import { withRouter } from '../utils/withRouter';
+import { useState } from 'react';
+import './Login.css';
+import { isLockedOutUser, setCredentials, verifyCredentials } from '../utils/Credentials';
+import { ROUTES, VALID_USERNAMES, VALID_PASSWORD } from '../utils/Constants';
+import InputError, { INPUT_TYPES } from '../components/InputError';
+import SubmitButton from '../components/SubmitButton';
+import ErrorMessage from '../components/ErrorMessage';
+import { BacktraceClient } from '@backtrace/react';
 
 function Login(props) {
   const { history, location } = props;
-  const [error, setError] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [error, setError] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     if (location.state) {
@@ -28,17 +24,17 @@ function Login(props) {
   }, [location.state]);
 
   const dismissError = () => {
-    setError("");
+    setError('');
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!username) {
-      return setError("Username is required");
+      return setError('Username is required');
     }
 
     if (!password) {
-      return setError("Password is required");
+      return setError('Password is required');
     }
 
     if (verifyCredentials(username, password)) {
@@ -48,27 +44,21 @@ function Login(props) {
       // Catch our locked-out user and bail out
       if (isLockedOutUser()) {
         // Send an error with custom attributes to Backtrace
-        BacktraceClient.instance.send(
-          new Error("Locked out user tried to log in."),
-          { username },
-        );
-        return setError("Sorry, this user has been locked out.");
+        BacktraceClient.instance.send(new Error('Locked out user tried to log in.'), { username });
+        return setError('Sorry, this user has been locked out.');
       }
 
       // Redirect!
       history.push(ROUTES.INVENTORY);
     } else {
       // Send an error with custom attributes to Backtrace
-      BacktraceClient.instance.send(
-        "Someone tried to login with invalid credentials.",
-        { username },
-      );
-      return setError(
-        "Username and password do not match any user in this service",
-      );
+      BacktraceClient.instance.send('Someone tried to login with invalid credentials.', {
+        username,
+      });
+      return setError('Username and password do not match any user in this service');
     }
 
-    return "";
+    return '';
   };
 
   const handleUserChange = (evt) => {
@@ -83,7 +73,7 @@ function Login(props) {
     <div className="login_container">
       <div className="login_logo">Swag Labs</div>
 
-      <div className="login_wrapper" data-test="login-container" role="main">
+      <div className="login_wrapper" data-testid="login-container" role="main">
         <div className="login_wrapper-inner">
           <div id="login_button_container" className="form_column">
             <div className="login-box">
@@ -128,16 +118,12 @@ function Login(props) {
             </div>
           </div>
         </div>
-        <div
-          className="login_credentials_wrap"
-          data-test="login-credentials-container"
-        >
+        <div className="login_credentials_wrap" data-testid="login-credentials-container">
           <div className="login_credentials_wrap-inner">
             <div
               id="login_credentials"
               className="login_credentials"
-              data-test="login-credentials"
-            >
+              data-testid="login-credentials">
               <h4>Accepted usernames are:</h4>
               {VALID_USERNAMES.map((u, i) => (
                 <Fragment key={i}>
@@ -146,7 +132,7 @@ function Login(props) {
                 </Fragment>
               ))}
             </div>
-            <div className="login_password" data-test="login-password">
+            <div className="login_password" data-testid="login-password">
               <h4>Password for all users:</h4>
               {VALID_PASSWORD}
             </div>

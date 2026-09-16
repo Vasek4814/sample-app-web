@@ -4,7 +4,7 @@ exports[`Footer should render correctly 1`] = `
 <DocumentFragment>
   <footer
     class="footer"
-    data-test="footer"
+    data-testid="footer"
   >
     <ul
       class="social"
@@ -13,7 +13,7 @@ exports[`Footer should render correctly 1`] = `
         class="social_x"
       >
         <a
-          data-test="social-x"
+          data-testid="social-x"
           href="https://x.com/saucelabs"
           rel="noreferrer"
           target="_blank"
@@ -25,7 +25,7 @@ exports[`Footer should render correctly 1`] = `
         class="social_facebook"
       >
         <a
-          data-test="social-facebook"
+          data-testid="social-facebook"
           href="https://www.facebook.com/saucelabs"
           rel="noreferrer"
           target="_blank"
@@ -37,7 +37,7 @@ exports[`Footer should render correctly 1`] = `
         class="social_linkedin"
       >
         <a
-          data-test="social-linkedin"
+          data-testid="social-linkedin"
           href="https://www.linkedin.com/company/sauce-labs/"
           rel="noreferrer"
           target="_blank"
@@ -48,7 +48,7 @@ exports[`Footer should render correctly 1`] = `
     </ul>
     <div
       class="footer_copy"
-      data-test="footer-copy"
+      data-testid="footer-copy"
     >
       © 1234 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
     </div>

@@ -1,24 +1,15 @@
-import React, { useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { ShoppingCart } from "../utils/shopping-cart";
-import { isErrorUser, isProblemUser } from "../utils/Credentials";
-import "./InventoryListItem.css";
-import { ROUTES } from "../utils/Constants";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "./Button";
-import getImage from "../utils/imageLoader";
+import React, { useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { ShoppingCart } from '../utils/shopping-cart';
+import { isErrorUser, isProblemUser } from '../utils/Credentials';
+import './InventoryListItem.css';
+import { ROUTES } from '../utils/Constants';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from './Button';
+import getImage from '../utils/imageLoader';
 
 const InventoryListItem = (props) => {
-  const {
-    isTextAlignRight,
-    missAlignButton,
-    desc,
-    id,
-    image_url,
-    history,
-    name,
-    price,
-  } = props;
+  const { isTextAlignRight, missAlignButton, desc, id, image_url, history, name, price } = props;
   const [itemInCart, setItemInCart] = useState(ShoppingCart.isItemInCart(id));
   const imgSrc = getImage(image_url);
 
@@ -39,7 +30,7 @@ const InventoryListItem = (props) => {
     } else if (isErrorUser()) {
       // Throw an exception. This will be reported to Backtrace
       if (itemId % 2 === 1) {
-        throw new Error("Failed to add item to the cart.");
+        throw new Error('Failed to add item to the cart.');
       }
     }
 
@@ -63,7 +54,7 @@ const InventoryListItem = (props) => {
     } else if (isErrorUser()) {
       // Throw an exception. This will be reported to Backtrace
       if (itemId % 2 === 0) {
-        throw new Error("Failed to remove item from cart.");
+        throw new Error('Failed to remove item from cart.');
       }
     }
 
@@ -85,13 +76,11 @@ const InventoryListItem = (props) => {
    */
   /* istanbul ignore next */
   const ButtonType = ({ id, item, itemInCart, missAlignButton }) => {
-    const label = itemInCart ? "Remove" : "Add to cart";
+    const label = itemInCart ? 'Remove' : 'Add to cart';
     const onClick = itemInCart ? () => removeFromCart(id) : () => addToCart(id);
     const type = itemInCart ? BUTTON_TYPES.SECONDARY : BUTTON_TYPES.PRIMARY;
-    const testId = `${label}-${item}`.replace(/\s+/g, "-").toLowerCase();
-    const buttonClass = `btn_inventory ${
-      missAlignButton ? "btn_inventory_misaligned" : ""
-    }`;
+    const testId = `${label}-${item}`.replace(/\s+/g, '-').toLowerCase();
+    const buttonClass = `btn_inventory ${missAlignButton ? 'btn_inventory_misaligned' : ''}`;
     return (
       <Button
         customClass={buttonClass}
@@ -103,12 +92,10 @@ const InventoryListItem = (props) => {
       />
     );
   };
-  const itemNameClass = `inventory_item_name ${
-    isTextAlignRight ? "align_right" : ""
-  }`;
+  const itemNameClass = `inventory_item_name ${isTextAlignRight ? 'align_right' : ''}`;
 
   return (
-    <div className="inventory_item" data-test="inventory-item">
+    <div className="inventory_item" data-testid="inventory-item">
       <div className="inventory_item_img">
         <a
           href="#"
@@ -117,24 +104,18 @@ const InventoryListItem = (props) => {
             evt.preventDefault();
             history.push(itemLink);
           }}
-          data-test={`item-${id}-img-link`}
+          data-testid={`item-${id}-img-link`}
           role="button"
-          aria-label={`View details for ${name}`}
-        >
+          aria-label={`View details for ${name}`}>
           <img
             alt={name}
             className="inventory_item_img"
             src={imgSrc}
-            data-test={`inventory-item-${name
-              .replace(/\s+/g, "-")
-              .toLowerCase()}-img`}
+            data-testid={`inventory-item-${name.replace(/\s+/g, '-').toLowerCase()}-img`}
           />
         </a>
       </div>
-      <div
-        className="inventory_item_description"
-        data-test="inventory-item-description"
-      >
+      <div className="inventory_item_description" data-testid="inventory-item-description">
         <div className="inventory_item_label">
           <a
             href="#"
@@ -143,23 +124,19 @@ const InventoryListItem = (props) => {
               evt.preventDefault();
               history.push(itemLink);
             }}
-            data-test={`item-${id}-title-link`}
+            data-testid={`item-${id}-title-link`}
             role="button"
-            aria-label={`View details for ${name}`}
-          >
-            <div className={itemNameClass} data-test="inventory-item-name">
+            aria-label={`View details for ${name}`}>
+            <div className={itemNameClass} data-testid="inventory-item-name">
               {name}
             </div>
           </a>
-          <div className="inventory_item_desc" data-test="inventory-item-desc">
+          <div className="inventory_item_desc" data-testid="inventory-item-desc">
             {desc}
           </div>
         </div>
         <div className="pricebar">
-          <div
-            className="inventory_item_price"
-            data-test="inventory-item-price"
-          >
+          <div className="inventory_item_price" data-testid="inventory-item-price">
             ${price}
           </div>
           <ButtonType

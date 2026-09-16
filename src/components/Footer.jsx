@@ -1,18 +1,13 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react';
+import './Footer.css';
 
 const SwagLabsFooter = () => {
   return (
-    <footer className="footer" data-test="footer">
+    <footer className="footer" data-testid="footer">
       {/* <div className="footer_container"> */}
       <ul className="social">
         <li className="social_x">
-          <a
-            href="https://x.com/saucelabs"
-            target="_blank"
-            rel="noreferrer"
-            data-test="social-x"
-          >
+          <a href="https://x.com/saucelabs" target="_blank" rel="noreferrer" data-testid="social-x">
             X
           </a>
         </li>
@@ -21,8 +16,7 @@ const SwagLabsFooter = () => {
             href="https://www.facebook.com/saucelabs"
             target="_blank"
             rel="noreferrer"
-            data-test="social-facebook"
-          >
+            data-testid="social-facebook">
             Facebook
           </a>
         </li>
@@ -31,16 +25,15 @@ const SwagLabsFooter = () => {
             href="https://www.linkedin.com/company/sauce-labs/"
             target="_blank"
             rel="noreferrer"
-            data-test="social-linkedin"
-          >
+            data-testid="social-linkedin">
             LinkedIn
           </a>
         </li>
       </ul>
 
-      <div className="footer_copy" data-test="footer-copy">
-        &copy; {new Date().getFullYear()} Sauce Labs. All Rights Reserved. Terms
-        of Service | Privacy Policy
+      <div className="footer_copy" data-testid="footer-copy">
+        &copy; {new Date().getFullYear()} Sauce Labs. All Rights Reserved. Terms of Service |
+        Privacy Policy
       </div>
       {/* </div> */}
     </footer>

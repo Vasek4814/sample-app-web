@@ -1,21 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Select.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Select.css';
 
 const Select = ({
   activeOption,
-  ariaLabel = "Select an option",
+  ariaLabel = 'Select an option',
   onChange,
   options,
   testId = undefined,
 }) => {
   return (
     <span className="select_container">
-      <span className="active_option" data-test="active-option">
-        {
-          options[options.findIndex((option) => option.key === activeOption)]
-            .value
-        }
+      <span className="active_option" data-testid="active-option">
+        {options[options.findIndex((option) => option.key === activeOption)].value}
       </span>
       <select
         onChange={onChange}
@@ -24,10 +21,9 @@ const Select = ({
         aria-label={ariaLabel}
         {...(testId
           ? {
-              "data-test": testId,
+              'data-test': testId,
             }
-          : {})}
-      >
+          : {})}>
         {options.map(({ key, value }) => (
           <option value={key} key={key}>
             {value}

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { isProblemUser } from "../utils/Credentials";
-import { ROUTES } from "../utils/Constants";
-import { ShoppingCart } from "../utils/shopping-cart";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "./Button";
-import "./CartItem.css";
+import React, { useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { isProblemUser } from '../utils/Credentials';
+import { ROUTES } from '../utils/Constants';
+import { ShoppingCart } from '../utils/shopping-cart';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from './Button';
+import './CartItem.css';
 
 const CartItem = ({ item = undefined, history, showButton = false }) => {
   const [itemVisible, setItemVisible] = useState(true);
@@ -29,8 +29,8 @@ const CartItem = ({ item = undefined, history, showButton = false }) => {
   const itemLink = `${ROUTES.INVENTORY_LIST}?id=${linkId}`;
 
   return (
-    <div className="cart_item" data-test="inventory-item">
-      <div className="cart_quantity" data-test="item-quantity">
+    <div className="cart_item" data-testid="inventory-item">
+      <div className="cart_quantity" data-testid="item-quantity">
         1
       </div>
       <div className="cart_item_label">
@@ -41,29 +41,25 @@ const CartItem = ({ item = undefined, history, showButton = false }) => {
             evt.preventDefault();
             history.push(itemLink);
           }}
-          data-test={`item-${id}-title-link`}
+          data-testid={`item-${id}-title-link`}
           role="button"
-          aria-label={`View details for ${name}`}
-        >
-          <div className="inventory_item_name" data-test="inventory-item-name">
+          aria-label={`View details for ${name}`}>
+          <div className="inventory_item_name" data-testid="inventory-item-name">
             {name}
           </div>
         </a>
-        <div className="inventory_item_desc" data-test="inventory-item-desc">
+        <div className="inventory_item_desc" data-testid="inventory-item-desc">
           {desc}
         </div>
         <div className="item_pricebar">
-          <div
-            className="inventory_item_price"
-            data-test="inventory-item-price"
-          >
+          <div className="inventory_item_price" data-testid="inventory-item-price">
             ${price}
           </div>
           {showButton && (
             <Button
               customClass="cart_button"
               label="Remove"
-              testId={`remove-${name.replace(/\s+/g, "-").toLowerCase()}`}
+              testId={`remove-${name.replace(/\s+/g, '-').toLowerCase()}`}
               onClick={() => removeFromCart(id)}
               size={BUTTON_SIZES.SMALL}
               type={BUTTON_TYPES.SECONDARY}

@@ -1,49 +1,38 @@
-import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
-import getImage from "../utils/imageLoader";
-import "./DynamicCatalogItemCard.css";
+import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import getImage from '../utils/imageLoader';
+import './DynamicCatalogItemCard.css';
 
-const DynamicCatalogItemCard = forwardRef(
-  ({ item, isLoaded = true, testId }, ref) => {
-    const imgSrc = getImage(item.image_url);
+const DynamicCatalogItemCard = forwardRef(({ item, isLoaded = true, testId }, ref) => {
+  const imgSrc = getImage(item.image_url);
 
-    return (
-      <div ref={ref} className="dynamic_catalog_card" data-test={testId}>
-        {isLoaded ? (
-          <>
-            <img
-              alt={item.name}
-              className="dynamic_catalog_card_img"
-              src={imgSrc}
-              data-test={`${testId}-img`}
-            />
-            <div
-              className="dynamic_catalog_card_name"
-              data-test={`${testId}-name`}
-            >
-              {item.name}
-            </div>
-            <div
-              className="dynamic_catalog_card_price"
-              data-test={`${testId}-price`}
-            >
-              ${item.price}
-            </div>
-          </>
-        ) : (
-          <div
-            className="dynamic_catalog_card_placeholder"
-            data-test={`${testId}-placeholder`}
-          >
-            Loading…
+  return (
+    <div ref={ref} className="dynamic_catalog_card" data-testid={testId}>
+      {isLoaded ? (
+        <>
+          <img
+            alt={item.name}
+            className="dynamic_catalog_card_img"
+            src={imgSrc}
+            data-testid={`${testId}-img`}
+          />
+          <div className="dynamic_catalog_card_name" data-testid={`${testId}-name`}>
+            {item.name}
           </div>
-        )}
-      </div>
-    );
-  },
-);
+          <div className="dynamic_catalog_card_price" data-testid={`${testId}-price`}>
+            ${item.price}
+          </div>
+        </>
+      ) : (
+        <div className="dynamic_catalog_card_placeholder" data-testid={`${testId}-placeholder`}>
+          Loading…
+        </div>
+      )}
+    </div>
+  );
+});
 
-DynamicCatalogItemCard.displayName = "DynamicCatalogItemCard";
+DynamicCatalogItemCard.displayName = 'DynamicCatalogItemCard';
 
 DynamicCatalogItemCard.propTypes = {
   /**

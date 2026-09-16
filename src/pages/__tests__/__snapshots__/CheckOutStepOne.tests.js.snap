@@ -11,12 +11,12 @@ exports[`CheckOutStepOne should render correctly 1`] = `
     >
       <header
         class="header_container"
-        data-test="header-container"
+        data-testid="header-container"
         id="header_container"
       >
         <div
           class="primary_header"
-          data-test="primary-header"
+          data-testid="primary-header"
         >
           <div
             id="menu_button_container"
@@ -37,7 +37,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                   <img
                     alt="Open Menu"
                     class="bm-icon"
-                    data-test="open-menu"
+                    data-testid="open-menu"
                     src="test-file-stub"
                     srcset="test-file-stub"
                     style="width: 100%; height: 100%;"
@@ -60,7 +60,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                   >
                     <a
                       class="bm-item menu-item"
-                      data-test="inventory-sidebar-link"
+                      data-testid="inventory-sidebar-link"
                       href="#"
                       id="inventory_sidebar_link"
                       role="button"
@@ -73,7 +73,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                       aria-controls="dynamic_catalog_submenu"
                       aria-expanded="false"
                       class="bm-item menu-item"
-                      data-test="dynamic-catalog-sidebar-link"
+                      data-testid="dynamic-catalog-sidebar-link"
                       href="#"
                       id="dynamic_catalog_sidebar_link"
                       role="button"
@@ -88,7 +88,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="about-sidebar-link"
+                      data-testid="about-sidebar-link"
                       href="https://saucelabs.com/"
                       id="about_sidebar_link"
                       style="display: block;"
@@ -98,7 +98,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="logout-sidebar-link"
+                      data-testid="logout-sidebar-link"
                       href="#"
                       id="logout_sidebar_link"
                       role="button"
@@ -109,7 +109,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                     </a>
                     <a
                       class="bm-item menu-item"
-                      data-test="reset-sidebar-link"
+                      data-testid="reset-sidebar-link"
                       href="#"
                       id="reset_sidebar_link"
                       role="button"
@@ -136,7 +136,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                     <img
                       alt="Close Menu"
                       class="bm-cross"
-                      data-test="close-menu"
+                      data-testid="close-menu"
                       src="test-file-stub"
                       srcset="test-file-stub"
                       style="width: 100%; height: 100%;"
@@ -162,18 +162,18 @@ exports[`CheckOutStepOne should render correctly 1`] = `
             <a
               aria-label="Cart, empty"
               class="shopping_cart_link"
-              data-test="shopping-cart-link"
+              data-testid="shopping-cart-link"
               role="button"
             />
           </div>
         </div>
         <div
           class="header_secondary_container"
-          data-test="secondary-header"
+          data-testid="secondary-header"
         >
           <span
             class="title"
-            data-test="title"
+            data-testid="title"
           >
             Checkout: Your Information
           </span>
@@ -181,7 +181,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
       </header>
       <div
         class="checkout_info_container"
-        data-test="checkout-info-container"
+        data-testid="checkout-info-container"
         id="checkout_info_container"
         role="main"
       >
@@ -202,7 +202,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                   autocapitalize="none"
                   autocorrect="off"
                   class="input_error form_input"
-                  data-test="firstName"
+                  data-testid="firstName"
                   id="first-name"
                   name="firstName"
                   placeholder="First Name"
@@ -218,7 +218,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                   autocapitalize="none"
                   autocorrect="off"
                   class="input_error form_input"
-                  data-test="lastName"
+                  data-testid="lastName"
                   id="last-name"
                   name="lastName"
                   placeholder="Last Name"
@@ -234,7 +234,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
                   autocapitalize="none"
                   autocorrect="off"
                   class="input_error form_input"
-                  data-test="postalCode"
+                  data-testid="postalCode"
                   id="postal-code"
                   name="postalCode"
                   placeholder="Zip/Postal Code"
@@ -251,7 +251,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
             >
               <button
                 class="btn btn_secondary back btn_medium cart_cancel_link"
-                data-test="cancel"
+                data-testid="cancel"
                 id="cancel"
                 name="cancel"
               >
@@ -264,7 +264,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
               </button>
               <input
                 class="submit-button btn btn_primary cart_button btn_action"
-                data-test="continue"
+                data-testid="continue"
                 id="continue"
                 name="continue"
                 type="submit"
@@ -277,7 +277,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
     </div>
     <footer
       class="footer"
-      data-test="footer"
+      data-testid="footer"
     >
       <ul
         class="social"
@@ -286,7 +286,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
           class="social_x"
         >
           <a
-            data-test="social-x"
+            data-testid="social-x"
             href="https://x.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -298,7 +298,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
           class="social_facebook"
         >
           <a
-            data-test="social-facebook"
+            data-testid="social-facebook"
             href="https://www.facebook.com/saucelabs"
             rel="noreferrer"
             target="_blank"
@@ -310,7 +310,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
           class="social_linkedin"
         >
           <a
-            data-test="social-linkedin"
+            data-testid="social-linkedin"
             href="https://www.linkedin.com/company/sauce-labs/"
             rel="noreferrer"
             target="_blank"
@@ -321,7 +321,7 @@ exports[`CheckOutStepOne should render correctly 1`] = `
       </ul>
       <div
         class="footer_copy"
-        data-test="footer-copy"
+        data-testid="footer-copy"
       >
         © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
       </div>

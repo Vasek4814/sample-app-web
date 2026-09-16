@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import HeaderContainer from "../components/HeaderContainer";
-import SwagLabsFooter from "../components/Footer";
-import LazyCatalogCard from "../components/LazyCatalogCard";
-import { InventoryDataLong } from "../utils/InventoryDataLong";
-import "./DynamicCatalogLazyLoad.css";
+import React, { useEffect, useRef, useState } from 'react';
+import HeaderContainer from '../components/HeaderContainer';
+import SwagLabsFooter from '../components/Footer';
+import LazyCatalogCard from '../components/LazyCatalogCard';
+import { InventoryDataLong } from '../utils/InventoryDataLong';
+import './DynamicCatalogLazyLoad.css';
 
 export const INITIAL_VISIBLE_COUNT = 6;
 export const LOAD_MORE_BATCH_SIZE = 6;
@@ -40,20 +40,15 @@ const DynamicCatalogLazyLoad = () => {
         <HeaderContainer secondaryTitle="Dynamic Catalog - Lazy Load" />
         <div
           className="dynamic_catalog_lazy_load_container"
-          data-test="dynamic-catalog-lazy-load-container"
-        >
+          data-testid="dynamic-catalog-lazy-load-container">
           {visibleItems.map((item) => (
-            <LazyCatalogCard
-              key={item.index}
-              item={item}
-              testId={`lazy-load-item-${item.index}`}
-            />
+            <LazyCatalogCard key={item.index} item={item} testId={`lazy-load-item-${item.index}`} />
           ))}
         </div>
         <div
           ref={sentinelRef}
           className="dynamic_catalog_lazy_load_sentinel"
-          data-test="dynamic-catalog-lazy-load-sentinel"
+          data-testid="dynamic-catalog-lazy-load-sentinel"
         />
       </div>
       <SwagLabsFooter />

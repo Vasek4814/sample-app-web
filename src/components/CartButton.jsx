@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import PropTypes from "prop-types";
-import { ShoppingCart } from "../utils/shopping-cart";
-import { ROUTES } from "../utils/Constants";
-import "./CartButton.css";
+import React, { useEffect, useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import PropTypes from 'prop-types';
+import { ShoppingCart } from '../utils/shopping-cart';
+import { ROUTES } from '../utils/Constants';
+import './CartButton.css';
 
 const CartButton = (props) => {
   const { history } = props;
-  let cartBadge = "";
-  const [cartContents, setCartContents] = useState(
-    ShoppingCart.getCartContents(),
-  );
+  let cartBadge = '';
+  const [cartContents, setCartContents] = useState(ShoppingCart.getCartContents());
   // Strangely enough this is being called, but not covered in the report
   /* istanbul ignore next */
   const cartListener = {
@@ -23,7 +21,7 @@ const CartButton = (props) => {
 
   if (cartContents.length > 0) {
     cartBadge = (
-      <span className="shopping_cart_badge" data-test="shopping-cart-badge">
+      <span className="shopping_cart_badge" data-testid="shopping-cart-badge">
         {cartContents.length}
       </span>
     );
@@ -33,14 +31,9 @@ const CartButton = (props) => {
     <a
       className="shopping_cart_link"
       onClick={() => history.push(ROUTES.CART)}
-      data-test="shopping-cart-link"
+      data-testid="shopping-cart-link"
       role="button"
-      aria-label={
-        cartContents.length > 0
-          ? `Cart, ${cartContents.length} items`
-          : "Cart, empty"
-      }
-    >
+      aria-label={cartContents.length > 0 ? `Cart, ${cartContents.length} items` : 'Cart, empty'}>
       {cartBadge}
     </a>
   );

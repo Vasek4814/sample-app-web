@@ -7,14 +7,14 @@ exports[`Select should render with a testID 1`] = `
   >
     <span
       class="active_option"
-      data-test="active-option"
+      data-testid="active-option"
     >
       Name (A to Z)
     </span>
     <select
       aria-label="Select an option"
       class="product_sort_container"
-      data-test="foo"
+      data-testid="foo"
     >
       <option
         value="az"
@@ -48,7 +48,7 @@ exports[`Select should render with default props 1`] = `
   >
     <span
       class="active_option"
-      data-test="active-option"
+      data-testid="active-option"
     >
       Name (A to Z)
     </span>

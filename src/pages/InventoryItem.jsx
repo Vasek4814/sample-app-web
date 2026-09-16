@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "../utils/withRouter";
-import { isProblemUser, isErrorUser } from "../utils/Credentials";
-import { ROUTES } from "../utils/Constants";
-import { ShoppingCart } from "../utils/shopping-cart";
-import { InventoryData } from "../utils/InventoryData";
-import HeaderContainer from "../components/HeaderContainer";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "../components/Button";
-import SwagLabsFooter from "../components/Footer";
-import "./InventoryItem.css";
-import BrokenComponent from "../components/BrokenComponent";
-import { ErrorBoundary } from "@backtrace/react";
-import getImage from "../utils/imageLoader";
+import React, { useEffect, useState } from 'react';
+import { withRouter } from '../utils/withRouter';
+import { isProblemUser, isErrorUser } from '../utils/Credentials';
+import { ROUTES } from '../utils/Constants';
+import { ShoppingCart } from '../utils/shopping-cart';
+import { InventoryData } from '../utils/InventoryData';
+import HeaderContainer from '../components/HeaderContainer';
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from '../components/Button';
+import SwagLabsFooter from '../components/Footer';
+import './InventoryItem.css';
+import BrokenComponent from '../components/BrokenComponent';
+import { ErrorBoundary } from '@backtrace/react';
+import getImage from '../utils/imageLoader';
 
 const InventoryItem = (props) => {
   useEffect(() => {
@@ -23,31 +23,29 @@ const InventoryItem = (props) => {
   let item;
 
   /* istanbul ignore else */
-  if (queryParams.has("id")) {
-    inventoryId = parseInt(queryParams.get("id"));
+  if (queryParams.has('id')) {
+    inventoryId = parseInt(queryParams.get('id'));
   }
 
   if (inventoryId >= 0 && InventoryData.length > inventoryId) {
     item = InventoryData[inventoryId];
   } else {
     item = {
-      name: "ITEM NOT FOUND",
+      name: 'ITEM NOT FOUND',
       desc: `We're sorry, but your call could not be completed as dialled.
           Please check your number, and try your call again.
           If you are in need of assistance, please dial 0 to be connected with an operator.
           This is a recording.
           4 T 1.`,
-      image_url: "sl-404.jpg",
-      price: "√-1",
+      image_url: 'sl-404.jpg',
+      price: '√-1',
     };
   }
 
   item.id = inventoryId;
   const imgSrc = getImage(item.image_url);
 
-  const [itemInCart, setItemInCart] = useState(
-    ShoppingCart.isItemInCart(inventoryId),
-  );
+  const [itemInCart, setItemInCart] = useState(ShoppingCart.isItemInCart(inventoryId));
   /**
    * @TODO:
    * This can't be tested yet because enzyme currently doesn't support ReactJS17,
@@ -76,7 +74,7 @@ const InventoryItem = (props) => {
     } else if (isErrorUser()) {
       // Throw an exception. This will be reported to Backtrace
       if (itemId % 2 === 1) {
-        throw new Error("Failed to add item to the cart.");
+        throw new Error('Failed to add item to the cart.');
       }
     }
 
@@ -100,7 +98,7 @@ const InventoryItem = (props) => {
     } else if (isErrorUser()) {
       // Throw an exception. This will be reported to Backtrace
       if (itemId % 2 === 0) {
-        throw new Error("Failed to remove item from cart.");
+        throw new Error('Failed to remove item from cart.');
       }
     }
 
@@ -116,10 +114,10 @@ const InventoryItem = (props) => {
    */
   /* istanbul ignore next */
   const ButtonType = ({ id, item, itemInCart }) => {
-    const label = itemInCart ? "Remove" : "Add to cart";
+    const label = itemInCart ? 'Remove' : 'Add to cart';
     const onClick = itemInCart ? () => removeFromCart(id) : () => addToCart(id);
     const type = itemInCart ? BUTTON_TYPES.SECONDARY : BUTTON_TYPES.PRIMARY;
-    const testId = label === "Remove" ? "remove" : "add-to-cart";
+    const testId = label === 'Remove' ? 'remove' : 'add-to-cart';
 
     return (
       <Button
@@ -151,29 +149,22 @@ const InventoryItem = (props) => {
         <div
           id="inventory_item_container"
           className="inventory_item_container"
-          data-test="inventory-container"
-          role="main"
-        >
+          data-testid="inventory-container"
+          role="main">
           <div className="inventory_details">
-            <div
-              className="inventory_details_container"
-              data-test="inventory-item"
-            >
+            <div className="inventory_details_container" data-testid="inventory-item">
               <div className="inventory_details_img_container">
                 <img
                   alt={item.name}
                   className="inventory_details_img"
                   src={imgSrc}
-                  data-test={`item-${item.name
-                    .replace(/\s+/g, "-")
-                    .toLowerCase()}-img`}
+                  data-testid={`item-${item.name.replace(/\s+/g, '-').toLowerCase()}-img`}
                 />
               </div>
               <div className="inventory_details_desc_container">
                 <div
                   className="inventory_details_name large_size"
-                  data-test="inventory-item-name"
-                >
+                  data-testid="inventory-item-name">
                   {item.name}
                 </div>
 
@@ -186,18 +177,15 @@ const InventoryItem = (props) => {
                   fallback={
                     <div
                       className="inventory_details_desc large_size"
-                      data-test="inventory-item-desc"
-                    >
-                      A description should be here, but it failed to render!
-                      This error has been reported to Backtrace.
+                      data-testid="inventory-item-desc">
+                      A description should be here, but it failed to render! This error has been
+                      reported to Backtrace.
                     </div>
-                  }
-                >
+                  }>
                   {!isErrorUser() ? (
                     <div
                       className="inventory_details_desc large_size"
-                      data-test="inventory-item-desc"
-                    >
+                      data-testid="inventory-item-desc">
                       {item.desc}
                     </div>
                   ) : (
@@ -205,17 +193,10 @@ const InventoryItem = (props) => {
                   )}
                 </ErrorBoundary>
 
-                <div
-                  className="inventory_details_price"
-                  data-test="inventory-item-price"
-                >
+                <div className="inventory_details_price" data-testid="inventory-item-price">
                   ${item.price}
                 </div>
-                <ButtonType
-                  id={item.id}
-                  itemInCart={itemInCart}
-                  item={item.name}
-                />
+                <ButtonType id={item.id} itemInCart={itemInCart} item={item.name} />
               </div>
             </div>
           </div>

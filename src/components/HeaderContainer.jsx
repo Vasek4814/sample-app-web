@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./HeaderContainer.css";
-import DrawerMenu from "./DrawerMenu";
-import CartButton from "./CartButton";
-import { isVisualUser } from "../utils/Credentials";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './HeaderContainer.css';
+import DrawerMenu from './DrawerMenu';
+import CartButton from './CartButton';
+import { isVisualUser } from '../utils/Credentials';
 
 const HeaderContainer = ({
   customClass = undefined,
@@ -42,44 +42,36 @@ const HeaderContainer = ({
    */
   /* istanbul ignore next */
   const Title = ({ title }) => (
-    <span className="title" data-test="title">
+    <span className="title" data-testid="title">
       {title}
     </span>
   );
-  const extraClass = customClass ? ` ${customClass}` : "";
+  const extraClass = customClass ? ` ${customClass}` : '';
   const isVisualFailure = isVisualUser();
   const shoppingCartContainerClass = `shopping_cart_container${
-    isVisualFailure ? " visual_failure" : ""
+    isVisualFailure ? ' visual_failure' : ''
   }`;
 
   return (
     <header
       id="header_container"
       className={`header_container${extraClass}`}
-      data-test="header-container"
-    >
-      <div className="primary_header" data-test="primary-header">
+      data-testid="header-container">
+      <div className="primary_header" data-testid="primary-header">
         <div id="menu_button_container">
           <DrawerMenu />
         </div>
         <div className="header_label">
           <div className="app_logo">Swag Labs</div>
         </div>
-        <div
-          id="shopping_cart_container"
-          className={shoppingCartContainerClass}
-        >
+        <div id="shopping_cart_container" className={shoppingCartContainerClass}>
           <CartButton />
         </div>
       </div>
-      <div className="header_secondary_container" data-test="secondary-header">
-        {secondaryLeftComponent && (
-          <LeftComponent leftComponent={secondaryLeftComponent} />
-        )}
+      <div className="header_secondary_container" data-testid="secondary-header">
+        {secondaryLeftComponent && <LeftComponent leftComponent={secondaryLeftComponent} />}
         {secondaryTitle && <Title title={secondaryTitle} />}
-        {secondaryRightComponent && (
-          <RightComponent rightComponent={secondaryRightComponent} />
-        )}
+        {secondaryRightComponent && <RightComponent rightComponent={secondaryRightComponent} />}
       </div>
     </header>
   );

@@ -79,7 +79,7 @@ exports[`Button should render a button with a testId 1`] = `
 <DocumentFragment>
   <button
     class="btn btn_primary btn_large"
-    data-test="test-id"
+    data-testid="test-id"
     id="test-id"
     name="test-id"
   >

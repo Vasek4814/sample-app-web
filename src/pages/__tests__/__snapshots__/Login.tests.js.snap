@@ -12,7 +12,7 @@ exports[`Login should render correctly 1`] = `
     </div>
     <div
       class="login_wrapper"
-      data-test="login-container"
+      data-testid="login-container"
       role="main"
     >
       <div
@@ -36,7 +36,7 @@ exports[`Login should render correctly 1`] = `
                   autocapitalize="none"
                   autocorrect="off"
                   class="input_error form_input"
-                  data-test="username"
+                  data-testid="username"
                   id="user-name"
                   name="user-name"
                   placeholder="Username"
@@ -52,7 +52,7 @@ exports[`Login should render correctly 1`] = `
                   autocapitalize="none"
                   autocorrect="off"
                   class="input_error form_input"
-                  data-test="password"
+                  data-testid="password"
                   id="password"
                   name="password"
                   placeholder="Password"
@@ -65,7 +65,7 @@ exports[`Login should render correctly 1`] = `
               />
               <input
                 class="submit-button btn_action"
-                data-test="login-button"
+                data-testid="login-button"
                 id="login-button"
                 name="login-button"
                 type="submit"
@@ -77,14 +77,14 @@ exports[`Login should render correctly 1`] = `
       </div>
       <div
         class="login_credentials_wrap"
-        data-test="login-credentials-container"
+        data-testid="login-credentials-container"
       >
         <div
           class="login_credentials_wrap-inner"
         >
           <div
             class="login_credentials"
-            data-test="login-credentials"
+            data-testid="login-credentials"
             id="login_credentials"
           >
             <h4>
@@ -105,7 +105,7 @@ exports[`Login should render correctly 1`] = `
           </div>
           <div
             class="login_password"
-            data-test="login-password"
+            data-testid="login-password"
           >
             <h4>
               Password for all users:

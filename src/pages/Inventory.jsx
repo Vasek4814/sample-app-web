@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { withRouter } from "../utils/withRouter";
+import React, { useState } from 'react';
+import { withRouter } from '../utils/withRouter';
 import {
   isErrorUser,
   isPerformanceGlitchUser,
   isProblemUser,
   isVisualUser,
-} from "../utils/Credentials";
-import InventoryListItem from "../components/InventoryListItem";
-import SwagLabsFooter from "../components/Footer";
-import HeaderContainer from "../components/HeaderContainer";
-import { sortAsc, sortDesc, sortHiLo, sortLoHi } from "../utils/Sorting";
-import Select from "../components/Select";
-import "./Inventory.css";
-import { BacktraceClient } from "@backtrace/react";
+} from '../utils/Credentials';
+import InventoryListItem from '../components/InventoryListItem';
+import SwagLabsFooter from '../components/Footer';
+import HeaderContainer from '../components/HeaderContainer';
+import { sortAsc, sortDesc, sortHiLo, sortLoHi } from '../utils/Sorting';
+import Select from '../components/Select';
+import './Inventory.css';
+import { BacktraceClient } from '@backtrace/react';
 
 const Inventory = ({ data }) => {
   const InventoryData = data;
-  const [inventoryList, setInventoryList] = useState(
-    sortAsc(InventoryData, "name"),
-  );
-  const [activeOption, setActiveOption] = useState("az");
+  const [inventoryList, setInventoryList] = useState(sortAsc(InventoryData, 'name'));
+  const [activeOption, setActiveOption] = useState('az');
   /* istanbul ignore next */
   const startPerformanceGlitch = (duration) => {
     const start = new Date().getTime();
@@ -50,29 +48,27 @@ const Inventory = ({ data }) => {
       return;
     } else if (isErrorUser()) {
       // Send an error with custom attributes to Backtrace
-      BacktraceClient.instance.send("Sorting is broken!", {
+      BacktraceClient.instance.send('Sorting is broken!', {
         sortOption: event.target.value,
         InventoryData,
       });
-      return alert(
-        "Sorting is broken! This error has been reported to Backtrace.",
-      );
+      return alert('Sorting is broken! This error has been reported to Backtrace.');
     }
 
     setActiveOption(event.target.value);
 
     switch (event.target.value) {
-      case "az":
-        setInventoryList(sortAsc(InventoryData, "name"));
+      case 'az':
+        setInventoryList(sortAsc(InventoryData, 'name'));
         break;
-      case "za":
-        setInventoryList(sortDesc(InventoryData, "name"));
+      case 'za':
+        setInventoryList(sortDesc(InventoryData, 'name'));
         break;
-      case "hilo":
-        setInventoryList(sortHiLo(InventoryData, "price"));
+      case 'hilo':
+        setInventoryList(sortHiLo(InventoryData, 'price'));
         break;
-      case "lohi":
-        setInventoryList(sortLoHi(InventoryData, "price"));
+      case 'lohi':
+        setInventoryList(sortLoHi(InventoryData, 'price'));
         break;
       default:
         return;
@@ -89,10 +85,10 @@ const Inventory = ({ data }) => {
               activeOption={activeOption}
               ariaLabel="Sort products"
               options={[
-                { key: "az", value: "Name (A to Z)" },
-                { key: "za", value: "Name (Z to A)" },
-                { key: "lohi", value: "Price (low to high)" },
-                { key: "hilo", value: "Price (high to low)" },
+                { key: 'az', value: 'Name (A to Z)' },
+                { key: 'za', value: 'Name (Z to A)' },
+                { key: 'lohi', value: 'Price (low to high)' },
+                { key: 'hilo', value: 'Price (high to low)' },
               ]}
               onChange={sortByOption}
               testId="product-sort-container"
@@ -104,9 +100,8 @@ const Inventory = ({ data }) => {
             <div
               id="inventory_container"
               className="inventory_container"
-              data-test="inventory-container"
-            >
-              <div className="inventory_list" data-test="inventory-list">
+              data-testid="inventory-container">
+              <div className="inventory_list" data-testid="inventory-list">
                 {inventoryList.map((item, i) => {
                   return (
                     <InventoryListItem
@@ -114,7 +109,7 @@ const Inventory = ({ data }) => {
                       id={item.id}
                       image_url={
                         isProblemUser() || (isVisualFailure && i === 0)
-                          ? "sl-404.jpg"
+                          ? 'sl-404.jpg'
                           : item.image_url
                       }
                       name={item.name}
