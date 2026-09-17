@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
+async function login(page) {
   await page.goto('http://localhost:3000/');
   await page.locator('#user-name').fill('standard_user');
   await page.locator('#password').fill('secret_sauce');
   await page.locator('#login-button').click();
-  await expect(page).toHaveURL(/.*inventory.html/);
-});
+  await expect(page).toHaveURL(/.*inventory\.html/);
+}
 
 test.describe('Каталог товаров', () => {
+  test.beforeEach(async ({ page }) => {
+    await login(page);
+  });
   test('отображает ровно 6 товаров с ценами и картинками', async ({ page }) => {
     await expect(page.getByTestId('inventory-item')).toHaveCount(6);
     await expect(page.locator('img.inventory_item_img')).toHaveCount(6);
@@ -81,50 +84,46 @@ test.describe('Каталог товаров', () => {
   });
 });
 
-test.describe('Известные баги', () => {
-  test('problem_user: картинки товаров не соответствуют названиям', async ({ page }) => {
-    test.fail(true, 'Known issue: у problem_user картинки одинаковые и не соответствуют названиям');
+test('problem_user: картинки товаров не соответствуют названиям', async ({ page }) => {
+  test.fail(true, 'Known issue: у problem_user картинки одинаковые и не соответствуют названиям');
 
-    await page.goto('http://localhost:3000/');
-    await page.locator('#user-name').fill('problem_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
+  await page.goto('http://localhost:3000/');
+  await page.locator('#user-name').fill('problem_user');
+  await page.locator('#password').fill('secret_sauce');
+  await page.locator('#login-button').click();
 
-    const items = page.getByTestId('inventory-item');
-    await expect(items).toHaveCount(6);
+  const items = page.getByTestId('inventory-item');
+  await expect(items).toHaveCount(6);
 
-    for (let i = 0; i < 6; i++) {
-      const item = items.nth(i);
-      const name = (await item.getByTestId('inventory-item-name').textContent())?.trim();
-      const alt = await item.locator('img.inventory_item_img').getAttribute('alt');
+  for (let i = 0; i < 6; i++) {
+    const item = items.nth(i);
+    const name = (await item.getByTestId('inventory-item-name').textContent())?.trim();
+    const alt = await item.locator('img.inventory_item_img').getAttribute('alt');
 
-      expect(alt?.trim()).toBe(name);
-    }
-  });
+    expect(alt?.trim()).toBe(name);
+  }
 });
 
-test.describe('Производительность', () => {
-  const PERFORMANCE_THRESHOLD_MS = 3000;
+const PERFORMANCE_THRESHOLD_MS = 3000;
 
-  test('performance_glitch_user: каталог грузится медленно, но не ломается', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
-    await page.locator('#user-name').fill('performance_glitch_user');
-    await page.locator('#password').fill('secret_sauce');
+test('performance_glitch_user: каталог грузится медленно, но не ломается', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await page.locator('#user-name').fill('performance_glitch_user');
+  await page.locator('#password').fill('secret_sauce');
 
-    const start = Date.now();
-    await page.locator('#login-button').click();
+  const start = Date.now();
+  await page.locator('#login-button').click();
 
-    const items = page.getByTestId('inventory-item');
-    await expect(items).toHaveCount(6, { timeout: 30_000 });
+  const items = page.getByTestId('inventory-item');
+  await expect(items).toHaveCount(6, { timeout: 30_000 });
 
-    const duration = Date.now() - start;
-    console.log(`⏱ Загрузка каталога у performance_glitch_user: ${duration} мс`);
+  const duration = Date.now() - start;
+  console.log(`⏱ Загрузка каталога у performance_glitch_user: ${duration} мс`);
 
-    // Каталог не сломался
-    await expect(items).toHaveCount(6);
-    await expect(page).toHaveURL(/.*inventory.html/);
+  // Каталог не сломался
+  await expect(items).toHaveCount(6);
+  await expect(page).toHaveURL(/.*inventory.html/);
 
-    // Загрузка заняла больше порога — это ожидаемое поведение
-    expect(duration).toBeGreaterThan(PERFORMANCE_THRESHOLD_MS);
-  });
+  // Загрузка заняла больше порога — это ожидаемое поведение
+  expect(duration).toBeGreaterThan(PERFORMANCE_THRESHOLD_MS);
 });

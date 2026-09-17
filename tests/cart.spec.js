@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
+async function login(page) {
   await page.goto('http://localhost:3000/');
   await page.locator('#user-name').fill('standard_user');
   await page.locator('#password').fill('secret_sauce');
   await page.locator('#login-button').click();
   await expect(page).toHaveURL(/.*inventory\.html/);
-});
+}
 
 test.describe('Корзина', () => {
+  test.beforeEach(async ({ page }) => {
+    await login(page);
+  });
   test('Добавление одного товара: бейдж корзины равен 1', async ({ page }) => {
     await page.getByRole('button', { name: 'Add to cart' }).first().click();
 
