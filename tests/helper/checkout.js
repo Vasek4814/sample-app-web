@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { addThreeItemsToCart } from './cart';
+import { addItemsToCart } from './cart';
 
 export const VALID_DATA = {
   firstName: 'Vasiliy',
@@ -7,7 +7,7 @@ export const VALID_DATA = {
   zip: '142190',
 };
 
-export async function prepareCheckoutWithThreeItems(page) {
+export async function goToCheckout(page) {
   await addThreeItemsToCart(page);
   await page.getByTestId('shopping-cart-link').click();
   await expect(page).toHaveURL(/.*cart\.html/);

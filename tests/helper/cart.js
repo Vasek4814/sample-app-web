@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 
-export async function addThreeItemsToCart(page) {
+export async function addItemsToCart(page) {
   for (let i = 0; i < 3; i++) {
     await page.getByRole('button', { name: 'Add to cart' }).first().click();
   }

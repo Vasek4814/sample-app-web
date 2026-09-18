@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 import { login } from './helper/login';
-import { prepareCheckoutWithThreeItems, VALID_DATA } from './helper/checkout';
+import { goToCheckout, VALID_DATA } from './helper/checkout';
 
 test.describe('Оформление заказа', () => {
   test.beforeEach(async ({ page }) => {
-    await login(page);
-    await prepareCheckoutWithThreeItems(page);
+    await fillLogin(page);
+    await goToCheckout(page);
   });
 
   test('Оформление заказа с валидными данными проходит успешно', async ({ page }) => {
