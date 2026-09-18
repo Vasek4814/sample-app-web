@@ -31,8 +31,12 @@ test.describe('Корзина', () => {
   });
 
   test('Товары в корзине: названия и цены совпадают с каталогом', async ({ page }) => {
+    await expect(page).toHaveURL(/.*inventory\.html/);
+
     const names = page.getByTestId('inventory-item-name');
     const prices = page.getByTestId('inventory-item-price');
+    await expect(names).toHaveCount(6);
+    await expect(prices).toHaveCount(6);
 
     const expectedNames = [
       await names.nth(0).textContent(),
@@ -45,14 +49,27 @@ test.describe('Корзина', () => {
       await prices.nth(2).textContent(),
     ];
 
+    // Добавляем 3 товара
     for (let i = 0; i < 3; i++) {
       await page.getByRole('button', { name: 'Add to cart' }).first().click();
     }
 
-    await page.getByTestId('shopping-cart-link').click();
+    // Проверяем, что добавилось 3
+    await expect(page.getByTestId('shopping-cart-badge')).toHaveText('3');
 
+    // Переходим в корзину
+    await page.locator('.shopping_cart_link').click();
+    await expect(page).toHaveURL(/.*cart\.html/);
+
+    // Дожидаемся, что в корзине 3 товара
+    await expect(page.getByTestId('inventory-item')).toHaveCount(3);
+
+    // Собираем данные
     const cartNames = await page.getByTestId('inventory-item-name').allTextContents();
     const cartPrices = await page.getByTestId('inventory-item-price').allTextContents();
+
+    console.log('expectedNames:', expectedNames);
+    console.log('cartNames:', cartNames);
 
     expect(cartNames).toEqual(expectedNames);
     expect(cartPrices).toEqual(expectedPrices);
