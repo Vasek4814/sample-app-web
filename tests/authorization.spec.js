@@ -3,7 +3,7 @@ import { fillLogin, USERS } from './helper/login';
 
 test.describe('Авторизация', () => {
   test.beforeEach(async ({ page }) => {
-    await fillLogin(page);
+    await page.goto('http://localhost:3000/');
   });
 
   test('Успешный вход с валидными учётными данными', async ({ page }) => {
@@ -56,7 +56,7 @@ test.describe('Авторизация', () => {
 
     await page.locator('#react-burger-menu-btn').click();
     await page.locator('#logout_sidebar_link').click();
-    await page.goto('https://www.saucedemo.com/inventory.html');
+    await page.goto('http://localhost:3000/inventory.html');
 
     await expect(page.getByTestId('error')).toContainText(
       "Epic sadface: You can only access '/inventory.html' when you are logged in.",

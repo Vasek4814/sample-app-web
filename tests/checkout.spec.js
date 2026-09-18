@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { login } from './helper/login';
+
 import { goToCheckout, VALID_DATA } from './helper/checkout';
+import { fillLogin } from './helper/login';
 
 test.describe('Оформление заказа', () => {
   test.beforeEach(async ({ page }) => {
@@ -89,7 +90,7 @@ test.describe('Оформление заказа', () => {
 
 test.describe('Оформление заказа с пустой корзиной', () => {
   test.beforeEach(async ({ page }) => {
-    await login(page);
+    await fillLogin(page);
   });
 
   test('Оформление с пустой корзиной невозможно', async ({ page }) => {

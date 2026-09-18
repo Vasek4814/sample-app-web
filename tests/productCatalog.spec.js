@@ -1,16 +1,9 @@
 import { test, expect } from '@playwright/test';
-
-async function login(page) {
-  await page.goto('http://localhost:3000/');
-  await page.locator('#user-name').fill('standard_user');
-  await page.locator('#password').fill('secret_sauce');
-  await page.locator('#login-button').click();
-  await expect(page).toHaveURL(/.*inventory\.html/);
-}
+import { fillLogin } from './helper/login';
 
 test.describe('Каталог товаров', () => {
   test.beforeEach(async ({ page }) => {
-    await login(page);
+    await fillLogin(page);
   });
   test('отображает ровно 6 товаров с ценами и картинками', async ({ page }) => {
     await expect(page.getByTestId('inventory-item')).toHaveCount(6);
@@ -85,8 +78,6 @@ test.describe('Каталог товаров', () => {
 });
 
 test('problem_user: картинки товаров не соответствуют названиям', async ({ page }) => {
-  test.fail(true, 'Known issue: у problem_user картинки одинаковые и не соответствуют названиям');
-
   await page.goto('http://localhost:3000/');
   await page.locator('#user-name').fill('problem_user');
   await page.locator('#password').fill('secret_sauce');
