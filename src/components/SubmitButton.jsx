@@ -12,6 +12,7 @@ const SubmitButton = ({ customClass = undefined, testId = undefined, value, ...p
       {...(testId
         ? {
             "data-test": testId,
+            "data-testid": testId,
             id: testId,
             name: testId,
           }

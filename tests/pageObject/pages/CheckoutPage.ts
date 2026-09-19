@@ -8,15 +8,13 @@ export interface CheckoutFormData {
 
 export class CheckoutPage extends BasePage {
   readonly url = "/checkout-step-one.html";
-  readonly firstNameInput = this.page.getByPlaceholder("First Name");
-  readonly lastNameInput = this.page.getByPlaceholder("Last Name");
-  readonly zipInput = this.page.getByPlaceholder("Zip/Postal Code");
-  readonly continueButton = this.page.locator("#continue");
-  readonly finishButton = this.page.getByRole("button", { name: "Finish" });
-  readonly cancelButton = this.page.getByRole("button", { name: "Cancel" });
-  readonly backHomeButton = this.page.getByRole("button", {
-    name: "Back Home",
-  });
+  readonly firstNameInput = this.page.getByTestId("firstName");
+  readonly lastNameInput = this.page.getByTestId("lastName");
+  readonly zipInput = this.page.getByTestId("postalCode");
+  readonly continueButton = this.page.getByTestId("continue");
+  readonly finishButton = this.page.getByTestId("finish");
+  readonly cancelButton = this.page.getByTestId("cancel");
+  readonly backHomeButton = this.page.getByTestId("back-to-products");
   readonly subtotalLabel = this.page.getByTestId("subtotal-label");
   readonly taxLabel = this.page.getByTestId("tax-label");
   readonly totalLabel = this.page.getByTestId("total-label");

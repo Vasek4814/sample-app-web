@@ -4,11 +4,11 @@ import { BasePage } from "./BasePage";
 
 export class LoginPage extends BasePage {
   readonly url = ROUTES.LOGIN;
-  readonly usernameInput = this.page.locator("#user-name");
-  readonly passwordInput = this.page.locator("#password");
-  readonly loginButton = this.page.locator("#login-button");
+  readonly usernameInput = this.page.getByTestId("username");
+  readonly passwordInput = this.page.getByTestId("password");
+  readonly loginButton = this.page.getByTestId("login-button");
   readonly error = this.page.getByTestId("error");
-  readonly errorCloseButton = this.page.locator('svg[data-icon="xmark"]');
+  readonly errorCloseButton = this.page.getByTestId("error-button");
 
   async login(user: TestUser): Promise<void> {
     await this.usernameInput.fill(user.username);

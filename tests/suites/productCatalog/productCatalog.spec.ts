@@ -79,7 +79,7 @@ test.describe("Каталог товаров", () => {
       const item = inventoryPage.itemByIndex(i);
       const name = await item.getByTestId("inventory-item-name").textContent();
 
-      await item.locator("img.inventory_item_img").click();
+      await item.getByTestId(/-img$/).click();
 
       await expect(page).toHaveURL(URL_PATTERN.INVENTORY_ITEM);
       await expect(
@@ -107,9 +107,7 @@ test.describe("Особые пользователи", () => {
       const name = (
         await item.getByTestId("inventory-item-name").textContent()
       )?.trim();
-      const alt = await item
-        .locator("img.inventory_item_img")
-        .getAttribute("alt");
+      const alt = await item.getByTestId(/-img$/).getAttribute("alt");
 
       expect(alt?.trim()).toBe(name);
     }

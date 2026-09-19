@@ -9,8 +9,8 @@ export class Header {
   constructor(page: Page) {
     this.cartLink = page.getByTestId("shopping-cart-link");
     this.cartBadge = page.getByTestId("shopping-cart-badge");
-    this.burgerButton = page.locator("#react-burger-menu-btn");
-    this.logoutLink = page.locator("#logout_sidebar_link");
+    this.burgerButton = page.getByTestId("open-menu");
+    this.logoutLink = page.getByTestId("logout-sidebar-link");
   }
 
   async openCart(): Promise<void> {

@@ -15,11 +15,11 @@ export class InventoryPage extends BasePage {
   readonly items = this.page.getByTestId('inventory-item');
   readonly itemNames = this.page.getByTestId('inventory-item-name');
   readonly itemPrices = this.page.getByTestId('inventory-item-price');
-  readonly itemImages = this.page.locator('img.inventory_item_img');
-  readonly sortSelect = this.page.locator('select.product_sort_container');
-  readonly detailsContainer = this.page.locator('.inventory_details_container');
-  readonly addToCartButtons = this.page.getByRole('button', { name: 'Add to cart' });
-  readonly removeButtons = this.page.getByRole('button', { name: 'Remove' });
+  readonly itemImages = this.page.getByTestId(/-img$/);
+  readonly sortSelect = this.page.getByTestId('product-sort-container');
+  readonly detailsContainer = this.page.getByTestId('inventory-item');
+  readonly addToCartButtons = this.page.getByTestId(/^add-to-cart-/);
+  readonly removeButtons = this.page.getByTestId(/^remove-/);
 
   itemByIndex(index: number) {
     return this.items.nth(index);
