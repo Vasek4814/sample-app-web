@@ -37,6 +37,7 @@ const Button = ({
       {...(testId
         ? {
             "data-test": testId,
+            "data-testid": testId,
             id: testId,
             name: testId,
           }
