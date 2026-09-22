@@ -49,19 +49,15 @@ test.describe('Корзина', () => {
       await prices.nth(2).textContent(),
     ];
 
-    // Добавляем 3 товара
     for (let i = 0; i < 3; i++) {
       await page.getByRole('button', { name: 'Add to cart' }).first().click();
     }
 
-    // Проверяем, что добавилось 3
     await expect(page.getByTestId('shopping-cart-badge')).toHaveText('3');
 
-    // Переходим в корзину
     await page.locator('.shopping_cart_link').click();
     await expect(page).toHaveURL(/.*cart\.html/);
 
-    // Дожидаемся, что в корзине 3 товара
     await expect(page.getByTestId('inventory-item')).toHaveCount(3);
 
     // Собираем данные
