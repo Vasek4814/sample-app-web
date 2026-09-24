@@ -21,7 +21,7 @@ const Select = ({
         aria-label={ariaLabel}
         {...(testId
           ? {
-              'data-test': testId,
+              'data-testid': testId,
             }
           : {})}>
         {options.map(({ key, value }) => (

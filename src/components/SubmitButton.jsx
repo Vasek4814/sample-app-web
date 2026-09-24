@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./SubmitButton.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './SubmitButton.css';
 
 const SubmitButton = ({ customClass = undefined, testId = undefined, value, ...props }) => {
-  const extraClass = customClass ? ` ${customClass}` : "";
+  const extraClass = customClass ? ` ${customClass}` : '';
   return (
     <input
       type="submit"
@@ -11,7 +11,7 @@ const SubmitButton = ({ customClass = undefined, testId = undefined, value, ...p
       value={value}
       {...(testId
         ? {
-            "data-test": testId,
+            'data-testid': testId,
             id: testId,
             name: testId,
           }
@@ -35,6 +35,5 @@ SubmitButton.propTypes = {
    */
   value: PropTypes.string.isRequired,
 };
-
 
 export default SubmitButton;

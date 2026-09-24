@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Button.css";
-import backPng from "../assets/img/back-arrow.png";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Button.css';
+import backPng from '../assets/img/back-arrow.png';
 
 export const BUTTON_TYPES = {
-  ACTION: "action",
-  BACK: "secondary back",
-  PRIMARY: "primary",
-  SECONDARY: "secondary",
+  ACTION: 'action',
+  BACK: 'secondary back',
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
 };
 export const BUTTON_SIZES = {
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large",
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
 };
 const Button = ({
   customClass = undefined,
@@ -24,26 +24,23 @@ const Button = ({
   ...props
 }) => {
   const buttonTypeClass = ` btn_${type}`;
-  const extraClass = customClass ? ` ${customClass}` : "";
+  const extraClass = customClass ? ` ${customClass}` : '';
   const buttonSize = ` btn_${size}`;
   /* istanbul ignore next */
-  const BackImage = () => (
-    <img src={backPng} className="back-image" alt="" />
-  );
+  const BackImage = () => <img src={backPng} className="back-image" alt="" />;
 
   return (
     <button
       className={`btn${buttonTypeClass}${buttonSize}${extraClass}`}
       {...(testId
         ? {
-            "data-test": testId,
+            'data-testid': testId,
             id: testId,
             name: testId,
           }
         : {})}
       onClick={onClick}
-      {...props}
-    >
+      {...props}>
       {type === BUTTON_TYPES.BACK && <BackImage />}
       {label}
     </button>
@@ -76,6 +73,5 @@ Button.propTypes = {
    */
   type: PropTypes.oneOf(Object.values(BUTTON_TYPES)),
 };
-
 
 export default Button;

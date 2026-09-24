@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import DynamicCatalogItemCard from "./DynamicCatalogItemCard";
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import DynamicCatalogItemCard from './DynamicCatalogItemCard';
 
 const LazyCatalogCard = ({ item, testId }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,14 +24,7 @@ const LazyCatalogCard = ({ item, testId }) => {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <DynamicCatalogItemCard
-      ref={nodeRef}
-      item={item}
-      isLoaded={isLoaded}
-      testId={testId}
-    />
-  );
+  return <DynamicCatalogItemCard ref={nodeRef} item={item} isLoaded={isLoaded} testId={testId} />;
 };
 
 LazyCatalogCard.propTypes = {
@@ -44,7 +37,7 @@ LazyCatalogCard.propTypes = {
     image_url: PropTypes.string.isRequired,
   }).isRequired,
   /**
-   * The base data-test id for this card
+   * The base data-testid id for this card
    */
   testId: PropTypes.string.isRequired,
 };

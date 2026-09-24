@@ -49,7 +49,7 @@ DynamicCatalogItemCard.propTypes = {
    */
   isLoaded: PropTypes.bool,
   /**
-   * The base data-test id for this card
+   * The base data-testid id for this card
    */
   testId: PropTypes.string.isRequired,
 };

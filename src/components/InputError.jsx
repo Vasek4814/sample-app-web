@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import "./InputError.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import './InputError.css';
 
 export const INPUT_TYPES = {
-  TEXT: "text",
-  PASSWORD: "password",
+  TEXT: 'text',
+  PASSWORD: 'password',
 };
 const InputError = ({
   isError,
   onChange,
-  placeholder = "",
+  placeholder = '',
   testId = undefined,
   type = INPUT_TYPES.TEXT,
-  value = "",
+  value = '',
   ...props
 }) => {
   return (
@@ -22,7 +22,7 @@ const InputError = ({
       <input
         // `form_input` has no style function
         // but is there for backwards compatibility
-        className={`input_error form_input${isError ? " error" : ""}`}
+        className={`input_error form_input${isError ? ' error' : ''}`}
         placeholder={placeholder}
         onChange={onChange}
         type={type}
@@ -30,16 +30,14 @@ const InputError = ({
         aria-label={placeholder}
         {...(testId
           ? {
-              "data-test": testId,
+              'data-testid': testId,
               id: testId,
               name: testId,
             }
           : {})}
         {...props}
       />
-      {isError && (
-        <FontAwesomeIcon icon={faTimesCircle} className="error_icon" />
-      )}
+      {isError && <FontAwesomeIcon icon={faTimesCircle} className="error_icon" />}
     </div>
   );
 };
@@ -64,12 +62,11 @@ InputError.propTypes = {
   /**
    * What type of field is it
    */
-  type: PropTypes.oneOf(["text", "password"]),
+  type: PropTypes.oneOf(['text', 'password']),
   /**
    * The value of the input
    */
   value: PropTypes.string,
 };
-
 
 export default InputError;
