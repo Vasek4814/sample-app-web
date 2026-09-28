@@ -38,12 +38,12 @@ test.describe('Авторизация', () => {
   test('После logout прямой переход на /inventory.html перенаправляет на страницу логина', async ({
     loginPage,
     page,
-    LogoutLink,
+    DrawerMenu,
   }) => {
     await loginPage.open();
     await loginPage.login(USERS.valid);
     await expect(page).toHaveURL(URL_PATTERN.INVENTORY);
-    await LogoutLink.logout();
+    await DrawerMenu.logout();
     await page.goto(ROUTES.INVENTORY);
     await expect(loginPage.error).toContainText(
       "Epic sadface: You can only access '/inventory.html' when you are logged in.",

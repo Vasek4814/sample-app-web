@@ -2,8 +2,6 @@ import { expect } from '@playwright/test';
 import { URL_PATTERN } from '../../constants/routes';
 import { checkoutData } from '../../data/checkoutData';
 import test from './checkout.fixture';
-import { before, beforeEach } from 'node:test';
-import { CheckoutPage } from '../../pageObject/pages/CheckoutPage';
 
 test.describe('Оформление заказа', () => {
   test.beforeEach(async ({ prepareCheckout }) => {

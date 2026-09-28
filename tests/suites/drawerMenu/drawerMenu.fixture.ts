@@ -1,17 +1,22 @@
 import { test as base, expect } from '@playwright/test';
 import { URL_PATTERN } from '../../constants/routes';
 import { Header } from '../../pageObject/components/Header';
-import { DrawerMenu } from '../../pageObject/components/DrawerMenu';
 import { CartPage } from '../../pageObject/pages/CartPage';
 import { InventoryPage } from '../../pageObject/pages/InventoryPage';
 import { LoginPage } from '../../pageObject/pages/LoginPage';
 import { USERS } from '../../data/users';
+import { DrawerMenu } from '../../pageObject/components/DrawerMenu';
+import { LazyLoadPage } from '../../pageObject/pages/LazyLoadPage';
+import { SliderPage } from '../../pageObject/pages/sliderPage';
 
 type TestFixtures = {
-  inventoryPage: InventoryPage;
   cartPage: CartPage;
+  inventoryPage: InventoryPage;
+  loginPage: LoginPage;
+  lazyLoadPage: LazyLoadPage;
+  sliderPage: SliderPage;
+  drawerMenu: DrawerMenu;
   header: Header;
-  DrawerMenu: DrawerMenu;
   prepareSession: () => Promise<InventoryPage>;
   prepareCart: (count?: number) => Promise<InventoryPage>;
 };
@@ -20,7 +25,9 @@ const test = base.extend<TestFixtures>({
   inventoryPage: async ({ page }, use) => use(new InventoryPage(page)),
   cartPage: async ({ page }, use) => use(new CartPage(page)),
   header: async ({ page }, use) => use(new Header(page)),
-  DrawerMenu: async ({ page }, use) => use(new DrawerMenu(page)),
+  drawerMenu: async ({ page }, use) => use(new DrawerMenu(page)),
+  lazyLoadPage: async ({ page }, use) => use(new LazyLoadPage(page)),
+  sliderPage: async ({ page }, use) => use(new SliderPage(page)),
   prepareSession: async ({ page, inventoryPage }, use) => {
     await use(async () => {
       const loginPage = new LoginPage(page);
@@ -39,4 +46,4 @@ const test = base.extend<TestFixtures>({
   },
 });
 
-export default test;
+export { test, expect };

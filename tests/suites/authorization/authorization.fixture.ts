@@ -1,15 +1,15 @@
 import { test as base } from '@playwright/test';
 import { LoginPage } from '../../pageObject/pages/LoginPage';
-import { LogoutLink } from '../../pageObject/components/DrawerMenu';
+import { DrawerMenu } from '../../pageObject/components/DrawerMenu';
 
 type TestFixtures = {
   loginPage: LoginPage;
-  LogoutLink: LogoutLink;
+  DrawerMenu: DrawerMenu;
 };
 
 const test = base.extend<TestFixtures>({
   loginPage: async ({ page }, use) => use(new LoginPage(page)),
-  LogoutLink: async ({ page }, use) => use(new LogoutLink(page)),
+  DrawerMenu: async ({ page }, use) => use(new DrawerMenu(page)),
 });
 
 export default test;
