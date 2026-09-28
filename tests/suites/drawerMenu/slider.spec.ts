@@ -1,9 +1,10 @@
 import { test, expect } from './drawerMenu.fixture';
 
 test.describe('Dynamic catalog slider', () => {
-  test.beforeEach(async ({ prepareSession, drawerMenu }) => {
+  test.beforeEach(async ({ prepareSession, drawerMenu, sliderPage }) => {
     await prepareSession();
     await drawerMenu.goToSlider();
+    await sliderPage.waitForLoaded();
   });
   test('Отображается 6 точек', async ({ sliderPage }) => {
     expect(await sliderPage.getDotsCount()).toBe(6);

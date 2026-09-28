@@ -13,7 +13,6 @@ export class SliderPage {
 
   constructor(page: Page) {
     this.page = page;
-    // this.container  = page.getByTestId('dynamic-catalog-slider-container');
     this.sliderItem = page.getByTestId('dynamic-catalog-slider-item');
     this.sliderItemName = page.getByTestId('dynamic-catalog-slider-item-name');
     this.sliderItemPrice = page.getByTestId('dynamic-catalog-slider-item-price');
@@ -25,7 +24,13 @@ export class SliderPage {
     return this.page.getByTestId(`dynamic-catalog-slider-dot-${index}`);
   }
   async getDotsCount(): Promise<number> {
+    await expect(this.sliderDots.locator('button').first()).toBeVisible();
     return this.sliderDots.locator('button').count();
+  }
+
+  async waitForLoaded() {
+    await expect(this.sliderDots).toBeVisible();
+    await expect(this.sliderDots.locator('button').first()).toBeVisible();
   }
 
   async clickDot(index: number) {
@@ -36,7 +41,6 @@ export class SliderPage {
     return this.btnActiveDot.getAttribute('data-testid');
   }
 
-  // --- Данные текущего слайда ---
   async getCurrentItemName(): Promise<string> {
     return (await this.sliderItemName.textContent())?.trim() ?? '';
   }
@@ -45,7 +49,6 @@ export class SliderPage {
     return (await this.sliderItemPrice.textContent())?.trim() ?? '';
   }
 
-  // --- Ожидания ---
   async expectActiveDot(index: number) {
     await expect(this.btnActiveDot).toHaveAttribute(
       'data-testid',
