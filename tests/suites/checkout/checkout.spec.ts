@@ -43,7 +43,6 @@ test.describe('Оформление заказа', () => {
     expect(total).toBe(expectedTotal);
   });
   test('Поле Zip принимает только цифры (проверка буквами)', async ({ page, checkoutPage }) => {
-    test.fail();
     await checkoutPage.fillForm(checkoutData.output({ zip: 'fsadsa' }));
     await checkoutPage.continue();
     await expect(page).toHaveURL(URL_PATTERN.CHECKOUT_STEP_ONE);
@@ -75,14 +74,11 @@ test.describe('Оформление заказа с пустой корзино�
     cartPage,
     checkoutPage,
   }) => {
-    test.fail();
     await prepareSession();
     await header.openCart();
     await expect(page).toHaveURL(URL_PATTERN.CART);
+    await expect(header.cartBadge).toBeHidden();
     await cartPage.checkoutButton.click();
-    await checkoutPage.fillForm(checkoutData.output());
-    await checkoutPage.continue();
-    await expect(checkoutPage.error).toBeVisible();
-    await expect(page).toHaveURL(URL_PATTERN.CHECKOUT_STEP_ONE);
+    await expect(page).toHaveURL(URL_PATTERN.CART);
   });
 });
