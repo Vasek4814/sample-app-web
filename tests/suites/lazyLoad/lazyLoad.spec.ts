@@ -1,4 +1,4 @@
-import { test, expect } from './drawerMenu.fixture';
+import { test, expect } from './lazyLoad.fixture';
 
 test.describe('Lazy Load — бесконечный скролл', () => {
   test.beforeEach(async ({ prepareSession, drawerMenu, page }) => {
@@ -13,17 +13,12 @@ test.describe('Lazy Load — бесконечный скролл', () => {
 
   test('Скролл подгружает новые карточки', async ({ lazyLoadPage }) => {
     await expect(lazyLoadPage.items.first()).toBeVisible();
-
     const countBefore = await lazyLoadPage.getItemsCount();
     const indexBefore = await lazyLoadPage.getLastIndex();
-
     await lazyLoadPage.scrollBy(5);
-
     const countAfter = await lazyLoadPage.getItemsCount();
     const indexAfter = await lazyLoadPage.getLastIndex();
-
     expect(countAfter).toBeGreaterThan(countBefore);
-
     expect(indexAfter).toBeGreaterThan(indexBefore);
   });
 });

@@ -1,4 +1,4 @@
-import { test, expect } from './drawerMenu.fixture';
+import { test, expect } from './slider.fixture';
 
 test.describe('Dynamic catalog slider', () => {
   test.beforeEach(async ({ prepareSession, drawerMenu, sliderPage }) => {
@@ -20,13 +20,10 @@ test.describe('Dynamic catalog slider', () => {
 
   test('Клик по 3-й точке переключает слайд', async ({ sliderPage }) => {
     const before = await sliderPage.getCurrentItemName();
-
     await sliderPage.clickDot(3);
     await sliderPage.expectActiveDot(3);
-
     const after = await sliderPage.getCurrentItemName();
     expect(after).not.toBe(before);
-
     const ariaLabel = await sliderPage.btnActiveDot.getAttribute('aria-label');
     expect(ariaLabel).toContain(after);
   });
@@ -37,7 +34,6 @@ test.describe('Dynamic catalog slider', () => {
     for (let i = 0; i < count; i++) {
       await sliderPage.clickDot(i);
       await sliderPage.expectActiveDot(i);
-
       const name = await sliderPage.getCurrentItemName();
       const label = await sliderPage.dot(i).getAttribute('aria-label');
       expect(label).toContain(name);
@@ -46,10 +42,8 @@ test.describe('Dynamic catalog slider', () => {
 
   test('Повторный клик по активной точке не ломает слайдер', async ({ sliderPage }) => {
     const before = await sliderPage.getActiveDotTestId();
-
     await sliderPage.btnActiveDot.click();
     await sliderPage.btnActiveDot.click();
-
     expect(await sliderPage.getActiveDotTestId()).toBe(before);
   });
 });
