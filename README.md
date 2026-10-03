@@ -47,25 +47,6 @@ npx playwright test -g "успешный ответ"
 
 ---
 
-## Структура тестов
-
-```
-tests/
-├── e2e/                          # Основные E2E-тесты
-│   ├── authorization.spec.ts
-│   ├── cart.spec.ts
-│   ├── checkout.spec.ts
-│   ├── drawerMenu.spec.ts
-│   ├── lazyLoad.spec.ts
-│   ├── productCatalog.spec.ts
-│   └── slider.spec.ts
-└── mock/                         # Тесты с мокингом API
-    ├── posts.spec.ts
-    └── posts.fixture.ts          # Фикстура с моками
-```
-
----
-
 ## Покрытые тестами сценарии
 
 ### Авторизация (`authorization.spec.ts`)
