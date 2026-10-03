@@ -8,6 +8,7 @@
 - **Frontend:** React + Vite
 - **Тесты:** Playwright (TypeScript)
 - **Page Object Model:** да (`pageObject/pages`)
+- **Мокинг API:** через `page.route()` + fixtures (`tests/mock/`)
 - **Node.js:** >= 24.9.0
 
 ## Запуск приложения
@@ -29,6 +30,38 @@ npx playwright test
 
 ```bash
 npx playwright show-report
+```
+
+Дополнительные команды:
+
+```bash
+# Только мок-тесты
+npx playwright test tests/mock/
+
+# Запуск с UI-режимом (headed)
+npx playwright test --headed
+
+# Конкретный тест по имени
+npx playwright test -g "успешный ответ"
+```
+
+---
+
+## Структура тестов
+
+```
+tests/
+├── e2e/                          # Основные E2E-тесты
+│   ├── authorization.spec.ts
+│   ├── cart.spec.ts
+│   ├── checkout.spec.ts
+│   ├── drawerMenu.spec.ts
+│   ├── lazyLoad.spec.ts
+│   ├── productCatalog.spec.ts
+│   └── slider.spec.ts
+└── mock/                         # Тесты с мокингом API
+    ├── posts.spec.ts
+    └── posts.fixture.ts          # Фикстура с моками
 ```
 
 ---
@@ -110,6 +143,30 @@ npx playwright show-report
 | 4   | Клик по 3-й точке переключает слайд, `aria-label` совпадает | Позитивный |
 | 5   | Прогон по всем точкам: имя совпадает с `aria-label`         | Позитивный |
 | 6   | Повторный клик по активной точке не ломает слайдер          | Граничный  |
+
+### Мокинг API (`posts.spec.ts`)
+
+Тесты изолированы от реального API через `page.route()`. Используется публичный `jsonplaceholder.typicode.com` как источник данных, но все ответы подменяются моками. Моки вынесены в переиспользуемую Playwright-фикстуру `mockPosts`.
+
+| #   | Сценарий                                           | Мок                        | Тип        |
+| --- | -------------------------------------------------- | -------------------------- | ---------- |
+| 1   | Успешный ответ (200) → список постов отрисован     | `mockPosts.success()`      | Позитивный |
+| 2   | Ошибка 500 Internal Server Error → показана ошибка | `mockPosts.error(500)`     | Негативный |
+| 3   | Ошибка 404 Not Found → показана ошибка             | `mockPosts.error(404)`     | Негативный |
+| 4   | Ошибка 401 Unauthorized → показана ошибка          | `mockPosts.error(401)`     | Негативный |
+| 5   | Пустой список `[]` → рендерится 0 постов           | `mockPosts.empty()`        | Граничный  |
+| 6   | Сетевой сбой (`abort('failed')`) → показана ошибка | `mockPosts.networkError()` | Негативный |
+| 7   | Таймаут (`abort('timedout')`) → показана ошибка    | `mockPosts.timeout()`      | Граничный  |
+| 8   | Задержка ответа 2 сек → лоадер виден, затем данные | `mockPosts.delayed(2000)`  | Граничный  |
+
+**Что демонстрируют тесты:**
+
+- ✅ Мокинг HTTP-запросов через `page.route()` с точным URL-паттерном
+- ✅ Подмена **кодов ответа**: 200, 401, 404, 500
+- ✅ Симуляция **сетевых сбоев**: `route.abort('failed')`, `route.abort('timedout')`
+- ✅ Симуляция **задержек** — проверка состояния загрузки (лоадера)
+- ✅ Переиспользование логики мокинга через **Playwright fixtures** (`mockPosts`)
+- ✅ Типизация моков через **TypeScript-интерфейсы**
 
 ---
 
